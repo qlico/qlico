@@ -1,0 +1,21 @@
+---
+# Author: Qlico <hello@qlico.dev>
+version: "3.9"
+services:
+  traefik:
+    image: traefik:v2.4.5
+    container_name: qlico-core_traefik
+    command: ['--providers.docker', '--api.insecure']
+    networks:
+      - qlico-core
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
+      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+networks:
+  qlico-core:
+    driver: bridge
+    name: qlico-core

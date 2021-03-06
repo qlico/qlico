@@ -1,0 +1,25 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Docker files #
+################
+/docker-compose.yml
+/docker-compose.yaml
+/docker-compose.override.yml
+
+# Editor created Files #
+########################
+.idea
+*~
+
+# Settings #
+############
+.env
