@@ -1,0 +1,41 @@
+---
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  buildall:
+    deps:
+      - build-php72
+      - build-php74-minimal
+      - build-php74-libvips
+      - build-php74-gd-imagick
+      - build-php80-minimal
+      - build-php80-libvips
+    cmds:
+      - echo "Build finished"
+    silent: true
+
+  build-php72:
+    cmds:
+      - docker build -f Dockerfile.php72 . --target dev --tag qlico-php72
+
+  build-php74-minimal:
+    cmds:
+      - docker build -f Dockerfile.php74-minimal . --target dev --tag qlico-php74-minimal
+
+  build-php74-libvips:
+    cmds:
+      - docker build -f Dockerfile.php74-libvips . --target dev --tag qlico-php74-libvips
+
+  build-php74-gd-imagick:
+    cmds:
+      - docker build -f Dockerfile.php74-gd-imagick . --target dev --tag qlico-php74-gd-imagick
+
+  build-php80-minimal:
+    cmds:
+      - docker build -f Dockerfile.php80-minimal . --target dev --tag qlico-php80-minimal
+
+  build-php80-libvips:
+    cmds:
+      - docker build -f Dockerfile.php80-libvips . --target dev --tag qlico-php80-libvips

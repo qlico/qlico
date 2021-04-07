@@ -1,0 +1,38 @@
+# Author: Qlico <hello@qlico.dev>
+---
+version: "3.9"
+services:
+  nginx:
+    image: nginxinc/nginx-unprivileged:1.19.6-alpine
+    container_name: ${PROJECT_NAME}_nginx
+    volumes:
+      - ./services/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./services/nginx/mime.types:/etc/nginx/mime.types
+      - ../:/var/www/html
+    depends_on:
+      - php
+    links:
+      - php
+    labels:
+      - "traefik.http.routers.${PROJECT_NAME}_nginx.rule=Host(`${PROJECT_HOST}`)"
+      - "traefik.http.services.${PROJECT_NAME}_nginx.loadbalancer.server.port=8080"
+    networks:
+      - qlico-core
+  php:
+    build:
+      context: ../
+      target: dev
+    container_name: ${PROJECT_NAME}_php
+    volumes:
+      - ../:/var/www/html
+      - ~/.composer:/home/qlico/.composer
+    environment:
+      - PHP_IDE_CONFIG=serverName=${PROJECT_NAME}
+    networks:
+      - qlico-core
+    env_file:
+      - .env
+networks:
+  qlico-core:
+    external:
+      name: qlico-core
