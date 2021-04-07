@@ -20,14 +20,31 @@ Qlico is open-source, you are more than welcome to contribute to this project!
 Fork and make a Pull Request, or create an Issue if you see any problem (even
 typos or spelling mistakes and grammer improvements are welcome).
 
-## More Qlico
+## Contributing to the docs
 
-* [Quick start](https://docs.qlico.dev/quick-start/)
-* [Docs](https://docs.qlico.dev/)
-* [Example project Docker files](https://github.com/qlico/project-examples/)
+You can find the docs in the `docs` folder.
+
+### Installation
+
+We prefer using [virtualenv](https://pypi.org/project/virtualenv/):
+
+```bash
+virtualenv -p python3 venv
+source ./venv/bin/activate
+pip install -r requirements.txt
+```
+
+### Commands
+
+* `mkdocs serve` - Start the live-reloading docs server.
+* `mkdocs build` - Build the documentation site.
+
+### More information
+
+For more information please see the [index.md file](docs/index.md) inside
+the `docs` folder.
 
 ## Stargazers
 
 If you like using Qlico, please star
 the [Qlico GitHub project](https://github.com/qlico/qlico).
-
