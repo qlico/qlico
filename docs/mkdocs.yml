@@ -1,0 +1,45 @@
+site_name: Qlico documentation
+theme:
+  name: material
+  features:
+    - navigation.tracking
+    - navigation.expand
+  logo: "assets/qlico-icon.png"
+  favicon: "assets/qlico-icon.png"
+
+docs_dir: .
+site_dir: ../site
+
+repo_url: https://github.com/qlico/qlico/
+site_url: https://docs.qlico.dev
+edit_uri: edit/main/docs/
+plugins:
+  - search
+  - same-dir
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - admonition
+  - toc:
+      permalink: ¶
+
+nav:
+  - Home: index.md
+  - Setup:
+      - Quick start: quick-start.md
+      - dnsmasq: dnsmasq.md
+  - Examples:
+      - Adminer: examples/adminer.md
+      - Blackfire: examples/blackfire.md
+      - Elasticsearch and Kibana: examples/elasticsearch-kibana.md
+      - MailHog: examples/mailhog.md
+      - Minio: examples/minio.md
+      - MySQL: examples/mysql.md
+      - Percona: examples/percona.md
+      - pgAdmin: examples/pgadmin.md
+      - PostgreSQL: examples/postgresql.md
+      - RabbitMQ: examples/rabbitmq.md
+      - Redis: examples/redis.md
+
+copyright: Copyright &copy; 2017 - 2021 <a href="https://twitter.com/TomKeur">Tom Keur</a> | <a href="https://github.com/qlico/docs/blob/main/LICENSE">Documentation Distributed under CC BY 4.0</a>

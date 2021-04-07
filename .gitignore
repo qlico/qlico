@@ -23,3 +23,8 @@ Thumbs.db
 # Settings #
 ############
 .env
+
+# Doc files     #
+#################
+site/
+venv/
