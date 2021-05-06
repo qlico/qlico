@@ -116,6 +116,31 @@ sudo bash -c 'echo "nameserver 127.0.0.1
 port 35353" > /etc/resolver/qlico'
 ```
 
+### M1 chip
+
+When using a MacBook with a M1 processor a workaround is required in order to be able to access docker containers from your local environment.
+
+```bash
+# Create a network alias to the localloopback ip
+# (this is required after every reboot)
+sudo ifconfig lo0 alias 10.254.254.254 255.255.255.0
+
+# Edit the dnsmasq configuration file
+sudo vim  $(brew --prefix)/etc/dnsmasq.conf
+```
+
+Replace the ip address you entered during the macOS setup above with the alias you created in the previous step.
+
+```plain
+address=/qlico/10.254.254.254
+```
+
+Restart dnsmasq
+```bash
+brew services stop dnsmasq
+brew services start dnsmasq
+```
+
 ## Windows
 
 Unfortunately dnsmasq is not available for Windows, if you have alternatives
