@@ -19,7 +19,7 @@ file.
 
 ```yaml
   blackfire:
-    image: blackfire/blackfire
+    image: blackfire/blackfire:2
     container_name: qlico-core_blackfire
     env_file:
       - .env
@@ -50,7 +50,7 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
   blackfire:
-    image: blackfire/blackfire
+    image: blackfire/blackfire:2
     container_name: qlico-core_blackfire
     env_file:
       - .env
