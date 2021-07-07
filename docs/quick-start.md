@@ -28,7 +28,7 @@ Congratulations, you're now running `qlico-core`.
 
 To start using Qlico, you'll need a `qlico` folder and `Dockerfile` inside
 your (existing) project. You can find these files in
-the [project-examples directory](../project-examples).
+the [project-examples directory](https://github.com/qlico/qlico/tree/main/project-examples).
 
 ## dnsmasq
 
