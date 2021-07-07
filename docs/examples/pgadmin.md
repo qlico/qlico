@@ -49,7 +49,7 @@ volume.
 version: "3.9"
 services:
   traefik:
-    image: traefik:v2.4.5
+    image: traefik:v2.4.9
     container_name: qlico-core_traefik
     command: [ '--providers.docker', '--api.insecure' ]
     networks:

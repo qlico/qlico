@@ -24,7 +24,7 @@ file.
 
 ```yaml
   redis6:
-    image: redis:6.2.1-alpine3.13
+    image: redis:6.2.4-alpine3.14
     container_name: qlico-core_redis6
     ports:
       - 6379:6379
@@ -53,7 +53,7 @@ volume.
 version: "3.9"
 services:
   traefik:
-    image: traefik:v2.4.5
+    image: traefik:v2.4.9
     container_name: qlico-core_traefik
     command: [ '--providers.docker', '--api.insecure' ]
     networks:
@@ -66,7 +66,7 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
   redis6:
-    image: redis:6.2.1-alpine3.13
+    image: redis:6.2.4-alpine3.14
     container_name: qlico-core_redis6
     ports:
       - 6379:6379

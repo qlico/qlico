@@ -20,7 +20,7 @@ file.
 
 ```yaml
   adminer:
-    image: adminer:4.8.0-standalone
+    image: adminer:4.8.1-standalone
     container_name: qlico-core_adminer
     labels:
       - "traefik.http.routers.adminer.rule=Host(`adminer.qlico`)"
@@ -39,7 +39,7 @@ This is a large example, so you know where to place the Adminer service.
 version: "3.9"
 services:
   traefik:
-    image: traefik:v2.4.5
+    image: traefik:v2.4.9
     container_name: qlico-core_traefik
     command: [ '--providers.docker', '--api.insecure' ]
     networks:
@@ -52,7 +52,7 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
   adminer:
-    image: adminer:4.8.0-standalone
+    image: adminer:4.8.1-standalone
     container_name: qlico-core_adminer
     labels:
       - "traefik.http.routers.adminer.rule=Host(`adminer.qlico`)"
