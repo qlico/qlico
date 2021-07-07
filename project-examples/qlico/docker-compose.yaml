@@ -34,5 +34,6 @@ services:
       - .env
 networks:
   qlico-core:
-    external:
-      name: qlico-core
+    external: true
+    name: qlico-core
+
