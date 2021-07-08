@@ -109,7 +109,8 @@ ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 # Add composer and php scripts for aliases.
 COPY qlico/services/php/scripts /usr/local/sbin
 RUN chmod +x /usr/local/sbin/composer \
-             /usr/local/sbin/php
+             /usr/local/sbin/php \
+             /usr/local/sbin/xphp
 
 # Disabled access logs for php-fpm
 RUN sed -i 's/access.log = \/proc\/self\/fd\/2/access.log = \/proc\/self\/fd\/1/g' /usr/local/etc/php-fpm.d/docker.conf
@@ -181,6 +182,7 @@ RUN set -xe \
     # Remove packages we don't want in production
     && rm -rf /usr/local/sbin/composer \
     && rm -rf /usr/local/bin/composer.phar \
+    && rm -rf /usr/local/sbin/xphp \
     && apk del git \
     && rm -rf /usr/bin/git \
     # create app folder
