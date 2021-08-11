@@ -194,6 +194,9 @@ RUN set -xe \
 
 COPY qlico/services/php/zzz-opcache.ini $PHP_INI_DIR
 
+# Remove decorate_workers_output from www.conf. It's PHP > 7.3.
+RUN sed -i '/^decorate_workers_output/d' /usr/local/etc/php-fpm.d/www.conf
+
 # Copy the application to the Docker image.
 COPY --chown=qlico:qlico . /app
 
