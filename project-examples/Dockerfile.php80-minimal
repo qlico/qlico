@@ -1,5 +1,5 @@
 # src: https://github.com/qlico/qlico/blob/main/project-examples/Dockerfile.php80-minimal
-FROM php:8.0.8-fpm-alpine3.13 as base
+FROM php:8.0.9-fpm-alpine3.14 as base
 LABEL maintainer="Qlico <hello@qlico.dev>"
 
 # PHP-FPM defaults
@@ -43,6 +43,7 @@ ENV PHPIZE_DEPS \
     re2c
 
 RUN apk add --no-cache --virtual .persistent-deps \
+    fcgi \
     gettext \
     git \
     gnu-libiconv \
@@ -98,7 +99,8 @@ ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 COPY qlico/services/php/scripts /usr/local/sbin
 RUN chmod +x /usr/local/sbin/composer \
              /usr/local/sbin/php \
-             /usr/local/sbin/xphp
+             /usr/local/sbin/xphp \
+             /usr/local/sbin/php-fpm-healthcheck
 
 # Disabled access logs for php-fpm
 RUN sed -i 's/access.log = \/proc\/self\/fd\/2/access.log = \/proc\/self\/fd\/1/g' /usr/local/etc/php-fpm.d/docker.conf
@@ -179,12 +181,8 @@ RUN set -xe \
 
 COPY qlico/services/php/zzz-opcache.ini $PHP_INI_DIR
 
-USER qlico
-
 # Copy the application to the Docker image.
-COPY . /app
-
-USER root
+COPY --chown=qlico:qlico . /app
 
 # Remove qlico folder.
 RUN rm -rf /app/qlico
