@@ -49,6 +49,7 @@ ENV PHPIZE_DEPS \
     vips-dev
 
 RUN apk add --no-cache --virtual .persistent-deps \
+    fcgi \
     freetype \
     gettext \
     git \
@@ -112,7 +113,8 @@ COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer.phar
 COPY qlico/services/php/scripts /usr/local/sbin
 RUN chmod +x /usr/local/sbin/composer \
              /usr/local/sbin/php \
-             /usr/local/sbin/xphp
+             /usr/local/sbin/xphp \
+             /usr/local/sbin/php-fpm-healthcheck
 
 # Disabled access logs for php-fpm
 RUN sed -i 's/access.log = \/proc\/self\/fd\/2/access.log = \/proc\/self\/fd\/1/g' /usr/local/etc/php-fpm.d/docker.conf
