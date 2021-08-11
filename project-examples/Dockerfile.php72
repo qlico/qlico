@@ -194,12 +194,8 @@ RUN set -xe \
 
 COPY qlico/services/php/zzz-opcache.ini $PHP_INI_DIR
 
-USER qlico
-
 # Copy the application to the Docker image.
-COPY . /app
-
-USER root
+COPY --chown=qlico:qlico . /app
 
 # Remove qlico folder.
 RUN rm -rf /app/qlico
