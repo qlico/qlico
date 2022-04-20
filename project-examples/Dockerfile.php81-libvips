@@ -1,5 +1,5 @@
-# src: https://github.com/qlico/qlico/blob/main/project-examples/Dockerfile.php74-gd-imagick
-FROM php:7.4.29-fpm-alpine3.15 as base
+# src: https://github.com/qlico/qlico/blob/main/project-examples/Dockerfile.php81-libvips
+FROM php:8.1.5-fpm-alpine3.15 as base
 LABEL maintainer="Qlico <hello@qlico.dev>"
 
 # PHP-FPM defaults
@@ -28,38 +28,31 @@ ENV PHPIZE_DEPS \
     autoconf \
     cmake \
     file \
-    freetype-dev \
     g++ \
     gcc \
     gettext-dev \
     git \
     icu-dev \
-    imagemagick-dev \
     libc-dev \
-    libjpeg-turbo-dev \
-    libpng-dev \
     libxml2-dev \
     libzip-dev \
     make \
     pcre-dev \
     pkgconf \
     postgresql-dev \
-    re2c
+    re2c \
+    vips-dev
 
 RUN apk add --no-cache --virtual .persistent-deps \
     fcgi \
-    freetype \
     gettext \
     git \
     gnu-libiconv \
     icu \
-    imagemagick \
     libintl \
-    libjpeg-turbo \
-    libpng \
     libpq \
-    libtool \
     libzip \
+    vips \
     && apk add --no-cache --virtual .build-deps \
        $PHPIZE_DEPS \
     && docker-php-ext-configure bcmath --enable-bcmath \
@@ -67,11 +60,9 @@ RUN apk add --no-cache --virtual .persistent-deps \
     && docker-php-ext-configure pcntl --enable-pcntl \
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql \
     && docker-php-ext-configure soap --enable-soap \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j "$(nproc)" \
        bcmath \
        exif \
-       gd \
        gettext \
        intl \
        opcache \
@@ -88,13 +79,13 @@ RUN apk add --no-cache --virtual .persistent-deps \
     && pecl install \
        APCu \
        ds \
-       imagick \
        redis \
+       vips \
     && docker-php-ext-enable \
        apcu \
        ds \
-       imagick \
        redis \
+       vips \
     && apk del .build-deps \
     && docker-php-source delete \
     && apk --no-cache -U upgrade \
@@ -147,7 +138,6 @@ RUN set -xe \
     && docker-php-ext-enable \
        xdebug \
     && apk del .build-deps \
-    && docker-php-source delete \
     # Install Blackfire
     && version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
     && architecture=$(case $(uname -m) in i386 | i686 | x86) echo "i386" ;; x86_64 | amd64) echo "amd64" ;; aarch64 | arm64 | armv8) echo "arm64" ;; *) echo "amd64" ;; esac) \
