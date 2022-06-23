@@ -1,5 +1,5 @@
 # src: https://github.com/qlico/qlico/blob/main/project-examples/Dockerfile.php80-minimal
-FROM php:8.0.18-fpm-alpine3.15 as base
+FROM php:8.0.20-fpm-alpine3.16 as base
 LABEL maintainer="Qlico <hello@qlico.dev>"
 
 # PHP-FPM defaults
