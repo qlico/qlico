@@ -25,15 +25,15 @@ Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
 ```yaml
-  elasticsearch7:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.3
-    container_name: qlico-core_elasticsearch7
+  elasticsearch8:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.3.2
+    container_name: qlico-core_elasticsearch8
     logging:
       driver: none
     ports:
-      - 9207:9200
+      - 9208:9200
     volumes:
-      - elasticsearch7-data/:/usr/share/elasticsearch/data
+      - elasticsearch8-data/:/usr/share/elasticsearch/data
     environment:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - discovery.type=single-node
@@ -42,8 +42,8 @@ file.
         soft: -1
         hard: -1
     labels:
-      - "traefik.http.routers.elasticsearch7.rule=Host(`elasticsearch7.qlico`)"
-      - "traefik.http.services.elasticsearch7.loadbalancer.server.port=9200"
+      - "traefik.http.routers.elasticsearch8.rule=Host(`elasticsearch8.qlico`)"
+      - "traefik.http.services.elasticsearch8.loadbalancer.server.port=9200"
     networks:
       - qlico-core
 ```
@@ -52,8 +52,8 @@ Add the following YAML to the `volumes` section of your `docker-compose.yaml`
 file.
 
 ```yaml
-  elasticsearch7-data:
-    name: qlico-core_elasticsearch7-data
+  elasticsearch8-data:
+    name: qlico-core_elasticsearch8-data
     driver: local
 ```
 
@@ -63,19 +63,19 @@ Add the following YAML to the `services` section of your `docker-compose.yaml`
 file. Make sure you're running Elasticsearch!
 
 ```yaml
-  kibana7:
-    image: docker.elastic.co/kibana/kibana:7.13.3
-    container_name: qlico-core_kibana7
+  kibana8:
+    image: docker.elastic.co/kibana/kibana:8.3.2
+    container_name: qlico-core_kibana8
     logging:
       driver: none
     links:
-      - elasticsearch7
+      - elasticsearch8
     environment:
-      ELASTICSEARCH_URL: http://elasticsearch7:9200
-      ELASTICSEARCH_HOSTS: '["http://elasticsearch7:9200"]'
+      ELASTICSEARCH_URL: http://elasticsearch8:9200
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch8:9200"]'
     labels:
-      - "traefik.http.routers.kibana7.rule=Host(`kibana7.qlico`)"
-      - "traefik.http.services.kibana7.loadbalancer.server.port=5601"
+      - "traefik.http.routers.kibana8.rule=Host(`kibana8.qlico`)"
+      - "traefik.http.services.kibana8.loadbalancer.server.port=5601"
     networks:
       - qlico-core
 ```
@@ -103,15 +103,15 @@ services:
     labels:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
-  elasticsearch7:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.3
-    container_name: qlico-core_elasticsearch7
+  elasticsearch8:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.3.2
+    container_name: qlico-core_elasticsearch8
     logging:
       driver: none
     ports:
-      - 9207:9200
+      - 9208:9200
     volumes:
-      - elasticsearch7-data/:/usr/share/elasticsearch/data
+      - elasticsearch8-data/:/usr/share/elasticsearch/data
     environment:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - discovery.type=single-node
@@ -120,28 +120,28 @@ services:
         soft: -1
         hard: -1
     labels:
-      - "traefik.http.routers.elasticsearch7.rule=Host(`elasticsearch7.qlico`)"
-      - "traefik.http.services.elasticsearch7.loadbalancer.server.port=9200"
+      - "traefik.http.routers.elasticsearch8.rule=Host(`elasticsearch8.qlico`)"
+      - "traefik.http.services.elasticsearch8.loadbalancer.server.port=9200"
     networks:
       - qlico-core
-  kibana7:
-    image: docker.elastic.co/kibana/kibana:7.13.3
-    container_name: qlico-core_kibana7
+  kibana8:
+    image: docker.elastic.co/kibana/kibana:8.3.2
+    container_name: qlico-core_kibana8
     logging:
       driver: none
     links:
-      - elasticsearch7
+      - elasticsearch8
     environment:
-      ELASTICSEARCH_URL: http://elasticsearch7:9200
-      ELASTICSEARCH_HOSTS: '["http://elasticsearch7:9200"]'
+      ELASTICSEARCH_URL: http://elasticsearch8:9200
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch8:9200"]'
     labels:
-      - "traefik.http.routers.kibana7.rule=Host(`kibana7.qlico`)"
-      - "traefik.http.services.kibana7.loadbalancer.server.port=5601"
+      - "traefik.http.routers.kibana8.rule=Host(`kibana8.qlico`)"
+      - "traefik.http.services.kibana8.loadbalancer.server.port=5601"
     networks:
       - qlico-core
 volumes:
-  elasticsearch7-data:
-    name: qlico-core_elasticsearch7-data
+  elasticsearch8-data:
+    name: qlico-core_elasticsearch8-data
     driver: local
 networks:
   qlico-core:

@@ -19,7 +19,7 @@ file.
 
 ```yaml
   mysql5:
-    image: mysql:5.7.34
+    image: mysql:5.7.39
     container_name: qlico-core_mysql5
     logging:
       driver: none
@@ -67,7 +67,7 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
   mysql5:
-    image: mysql:5.7.34
+    image: mysql:5.7.39
     container_name: qlico-core_mysql5
     logging:
       driver: none

@@ -17,9 +17,9 @@ Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
 ```yaml
-  postgres13:
-    image: postgres:13-alpine
-    container_name: qlico-core_postgres13
+  postgres14:
+    image: postgres:14-alpine
+    container_name: qlico-core_postgres14
     logging:
       driver: none
     ports:
@@ -28,7 +28,7 @@ file.
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-qlico}
     volumes:
-      - postgres13-data:/var/lib/postgresql
+      - postgres14-data:/var/lib/postgresql
     networks:
       - qlico-core
 ```
@@ -64,9 +64,9 @@ services:
     labels:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
-  postgres13:
-    image: postgres:13-alpine
-    container_name: qlico-core_postgres13
+  postgres14:
+    image: postgres:14-alpine
+    container_name: qlico-core_postgres14
     logging:
       driver: none
     ports:
@@ -75,7 +75,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-qlico}
     volumes:
-      - postgres13-data:/var/lib/postgresql
+      - postgres14-data:/var/lib/postgresql
     networks:
       - qlico-core
 volumes:

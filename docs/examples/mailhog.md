@@ -20,7 +20,7 @@ file.
 
 ```yaml
   mailhog:
-    image: mailhog/mailhog:v1.0.0
+    image: mailhog/mailhog:v1.0.1
     container_name: qlico-core_mailhog
     logging:
       driver: none
@@ -54,7 +54,7 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
   mailhog:
-    image: mailhog/mailhog:v1.0.0
+    image: mailhog/mailhog:v1.0.1
     container_name: qlico-core_mailhog
     logging:
       driver: none

@@ -24,7 +24,7 @@ file.
 
 ```yaml
   redis6:
-    image: redis:6.2.4-alpine3.14
+    image: redis:7.0.4-alpine3.16
     container_name: qlico-core_redis6
     ports:
       - 6379:6379
