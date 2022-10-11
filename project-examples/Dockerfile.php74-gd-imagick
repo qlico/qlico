@@ -1,5 +1,5 @@
 # src: https://github.com/qlico/qlico/blob/main/project-examples/Dockerfile.php74-gd-imagick
-FROM php:7.4.30-fpm-alpine3.16 as base
+FROM php:7.4.32-fpm-alpine3.16 as base
 LABEL maintainer="Qlico <hello@qlico.dev>"
 
 # PHP-FPM defaults
