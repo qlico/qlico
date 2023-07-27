@@ -5,27 +5,7 @@ version: '3'
 
 tasks:
   buildall:
-    deps:
-      - build-php80-minimal
-      - build-php80-libvips
-      - build-php81-minimal
-      - build-php81-libvips
     cmds:
-      - echo "Build finished"
+      - for: ['php80-minimal', 'php80-libvips', 'build-php81-minimal', 'build-php81-libvips']
+        cmd: docker build -f Dockerfile.{{ .ITEM }} . --target dev --tag qlico-{{ .ITEM }}
     silent: true
-
-  build-php80-minimal:
-    cmds:
-      - docker build -f Dockerfile.php80-minimal . --target dev --tag qlico-php80-minimal
-
-  build-php80-libvips:
-    cmds:
-      - docker build -f Dockerfile.php80-libvips . --target dev --tag qlico-php80-libvips
-
-  build-php81-minimal:
-    cmds:
-      - docker build -f Dockerfile.php81-minimal . --target dev --tag qlico-php81-minimal
-
-  build-php81-libvips:
-    cmds:
-      - docker build -f Dockerfile.php81-libvips . --target dev --tag qlico-php81-libvips
