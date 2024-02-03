@@ -6,6 +6,6 @@ version: '3'
 tasks:
   buildall:
     cmds:
-      - for: ['php80-minimal', 'php80-libvips', 'build-php81-minimal', 'build-php81-libvips']
+      - for: ['php83']
         cmd: docker build -f Dockerfile.{{ .ITEM }} . --target dev --tag qlico-{{ .ITEM }}
     silent: true
