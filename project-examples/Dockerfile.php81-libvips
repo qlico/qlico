@@ -1,5 +1,5 @@
 # src: https://github.com/qlico/qlico/blob/main/project-examples/Dockerfile.php81-libvips
-FROM php:8.1.21-fpm-alpine3.18 as base
+FROM php:8.1.27-fpm-alpine3.19 as base
 LABEL maintainer="Qlico <hello@qlico.dev>"
 
 # PHP-FPM defaults
