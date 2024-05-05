@@ -33,7 +33,7 @@ nav:
       - Adminer: examples/adminer.md
       - Blackfire: examples/blackfire.md
       - Elasticsearch and Kibana: examples/elasticsearch-kibana.md
-      - MailHog: examples/mailhog.md
+      - Mailpit: examples/mailpit.md
       - Minio: examples/minio.md
       - MySQL: examples/mysql.md
       - Percona: examples/percona.md
