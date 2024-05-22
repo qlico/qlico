@@ -1,7 +1,25 @@
 version: 2
 updates:
-- package-ecosystem: pip
-  directory: "docs/"
-  schedule:
-    interval: weekly
-  open-pull-requests-limit: 10
+  - package-ecosystem: pip
+    directory: "/"
+    open-pull-requests-limit: 5
+    rebase-strategy: auto
+    labels: ["dependencies"]
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: docker
+    directory: "/"
+    open-pull-requests-limit: 5
+    rebase-strategy: auto
+    labels: ["dependencies"]
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    open-pull-requests-limit: 5
+    rebase-strategy: auto
+    labels: ["dependencies"]
+    schedule:
+      interval: weekly
