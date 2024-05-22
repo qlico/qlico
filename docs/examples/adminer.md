@@ -36,7 +36,6 @@ This is a large example, so you know where to place the Adminer service.
 ```yaml
 ---
 # Author: Qlico <hello@qlico.dev>
-version: "3.9"
 services:
   traefik:
     image: traefik:v2.8

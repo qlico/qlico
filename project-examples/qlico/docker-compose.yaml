@@ -1,6 +1,5 @@
 # Author: Qlico <hello@qlico.dev>
 ---
-version: "3.9"
 services:
   nginx:
     image: nginxinc/nginx-unprivileged:1.20.1-alpine
@@ -36,4 +35,3 @@ networks:
   qlico-core:
     external: true
     name: qlico-core
-

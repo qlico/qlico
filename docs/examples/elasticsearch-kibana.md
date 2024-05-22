@@ -88,7 +88,6 @@ service and volume.
 ```yaml
 ---
 # Author: Qlico <hello@qlico.dev>
-version: "3.9"
 services:
   traefik:
     image: traefik:v2.8
