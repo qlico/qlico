@@ -4,8 +4,14 @@
 version: '3'
 
 tasks:
-  buildall:
+  default:
+    desc: Display all tasks
     cmds:
-      - for: ['php83']
-        cmd: docker build -f Dockerfile.{{ .ITEM }} . --target dev --tag qlico-{{ .ITEM }}
+      - task --list-all
+
+  buildall:
+    desc: Build latest Dockerfile for test pursoses only
+    cmds:
+      - for: ['php']
+        cmd: docker build -f Dockerfile . --target dev --tag qlico-{{ .ITEM }}
     silent: true
