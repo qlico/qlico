@@ -9,7 +9,7 @@ updates:
       interval: weekly
 
   - package-ecosystem: docker
-    directory: "/"
+    directory: "/project-examples"
     open-pull-requests-limit: 5
     rebase-strategy: auto
     labels: ["dependencies"]
