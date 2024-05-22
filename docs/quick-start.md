@@ -31,13 +31,13 @@ your (existing) project. You can find these files in
 the [project-examples directory](https://github.com/qlico/qlico/tree/main/project-examples).
 
 1. Copy the `qlico` folder (with all the files) to the (new or existing) project folder.
-2. Copy a `Dockerfile.phpversion` to the projectfolder and rename it to: `Dockerfile`, for the `phpversion` you can take a version you want.
+2. Copy the `Dockerfile` to the root of the project folder.
 
-New since the `Dockerfile.php83` version is that there is only one `Dockerfile`, no different variants anymore.
+Note: Since PHP 8.3 we've renamed `Dockerfile.phpX` to `Dockerfile`, you can edit the `Dockerfile` for the version you want.
 
 ## Add / remove PHP extensions
 
-Since the `Dockerfile.php83` we've started using [docker-php-extension-installer](https://github.com/mlocati/docker-php-extension-installer/) by [Michele Locati](https://github.com/mlocati).
+Since the PHP 8.3 we've started using [docker-php-extension-installer](https://github.com/mlocati/docker-php-extension-installer/) by [Michele Locati](https://github.com/mlocati).
 
 If you want to add or remove an PHP extension, please see the [Supported PHP extensions](https://github.com/mlocati/docker-php-extension-installer/?tab=readme-ov-file#supported-php-extensions).
 
@@ -46,6 +46,9 @@ We recommended to use the `-stable` suffix, to make sure you're using a stable v
 
 For example:
 
+Edit `Dockerfile`
+
+Before:
 ```Docker
     && install-php-extensions \
             APCu-stable \
@@ -53,6 +56,7 @@ For example:
 ```
 If you want to add `imagick` and remove `bcmath` you can change it to:
 
+After:
 ```Docker
     && install-php-extensions \
             APCu-stable \
