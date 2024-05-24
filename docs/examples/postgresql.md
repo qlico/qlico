@@ -38,7 +38,7 @@ file.
 
 ```yaml
   postgres16-data:
-    name: qlico-core_postgres13-data
+    name: qlico-core_postgres16-data
 ```
 
 ## Example in a full docker-compose file
