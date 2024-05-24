@@ -26,7 +26,7 @@ file.
 
 ```yaml
   elasticsearch8:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.3.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
     container_name: qlico-core_elasticsearch8
     logging:
       driver: none
@@ -64,7 +64,7 @@ file. Make sure you're running Elasticsearch!
 
 ```yaml
   kibana8:
-    image: docker.elastic.co/kibana/kibana:8.3.2
+    image: docker.elastic.co/kibana/kibana:8.13.4
     container_name: qlico-core_kibana8
     logging:
       driver: none
@@ -103,7 +103,7 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
   elasticsearch8:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.3.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
     container_name: qlico-core_elasticsearch8
     logging:
       driver: none
@@ -124,7 +124,7 @@ services:
     networks:
       - qlico-core
   kibana8:
-    image: docker.elastic.co/kibana/kibana:8.3.2
+    image: docker.elastic.co/kibana/kibana:8.13.4
     container_name: qlico-core_kibana8
     logging:
       driver: none
