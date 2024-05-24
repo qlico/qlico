@@ -26,7 +26,7 @@ file.
 
 ```yaml
   percona5:
-    image: percona:5.7.35-centos
+    image: percona:5.7.44-centos
     container_name: qlico-core_percona5
     logging:
       driver: none
@@ -57,7 +57,7 @@ file.
 
 ```yaml
   percona8:
-    image: percona:8.0.28-20-centos
+    image: percona:8.0.36-28-centos
     container_name: qlico-core_percona8
     logging:
       driver: none
@@ -104,7 +104,7 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
   percona5:
-    image: percona:5.7.35-centos
+    image: percona:5.7.44-centos
     container_name: qlico-core_percona5
     logging:
       driver: none
@@ -118,7 +118,7 @@ services:
     networks:
       - qlico-core
   percona8:
-    image: percona:8.0.28-20-centos
+    image: percona:8.0.36-28-centos
     container_name: qlico-core_percona8
     logging:
       driver: none
