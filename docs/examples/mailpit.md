@@ -21,7 +21,7 @@ file.
 
 ```yaml
   mailpit:
-    image: axllent/mailpit:v1.18.0
+    image: axllent/mailpit:v1.18.3
     container_name: qlico-core_mailpit
     restart: always
     volumes:
@@ -63,7 +63,7 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
   mailpit:
-    image: axllent/mailpit:v1.18.0
+    image: axllent/mailpit:v1.18.3
     container_name: qlico-core_mailpit
     restart: always
     volumes:
