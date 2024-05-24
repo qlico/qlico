@@ -17,8 +17,8 @@ Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
 ```yaml
-  postgres14:
-    image: postgres:14-alpine
+  postgres16:
+    image: postgres:16-alpine
     container_name: qlico-core_postgres14
     logging:
       driver: none
@@ -28,7 +28,7 @@ file.
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-qlico}
     volumes:
-      - postgres14-data:/var/lib/postgresql
+      - postgres16-data:/var/lib/postgresql/data
     networks:
       - qlico-core
 ```
@@ -37,7 +37,7 @@ Add the following YAML to the `volumes` section of your `docker-compose.yaml`
 file.
 
 ```yaml
-  postgres13-data:
+  postgres16-data:
     name: qlico-core_postgres13-data
 ```
 
@@ -49,10 +49,9 @@ volume.
 ```yaml
 ---
 # Author: Qlico <hello@qlico.dev>
-version: "3.9"
 services:
   traefik:
-    image: traefik:v2.8
+    image: traefik:v3.0
     container_name: qlico-core_traefik
     command: [ '--providers.docker', '--api.insecure' ]
     networks:
@@ -64,8 +63,8 @@ services:
     labels:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
-  postgres14:
-    image: postgres:14-alpine
+  postgres16:
+    image: postgres:16-alpine
     container_name: qlico-core_postgres14
     logging:
       driver: none
@@ -75,12 +74,12 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-qlico}
     volumes:
-      - postgres14-data:/var/lib/postgresql
+      - postgres16-data:/var/lib/postgresql/data
     networks:
       - qlico-core
 volumes:
-  postgres13-data:
-    name: qlico-core_postgres13-data
+  postgres16-data:
+    name: qlico-core_postgres16-data
 networks:
   qlico-core:
     driver: bridge
