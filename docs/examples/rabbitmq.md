@@ -20,7 +20,7 @@ file.
 
 ```yaml
   rabbitmq3:
-    image: rabbitmq:3.10-management-alpine
+    image: rabbitmq:3.13.2-management-alpine
     container_name: qlico-core_rabbitmq3
     ports:
       - 5672:5672
@@ -65,7 +65,7 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
   rabbitmq3:
-    image: rabbitmq:3.10-management-alpine
+    image: rabbitmq:3.13.2-management-alpine
     container_name: qlico-core_rabbitmq3
     ports:
       - 5672:5672
