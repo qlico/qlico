@@ -23,13 +23,13 @@ Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
 ```yaml
-  redis6:
-    image: redis:7.0.4-alpine3.16
-    container_name: qlico-core_redis6
+  redis7:
+    image: redis:7.2.5-alpine3.20
+    container_name: qlico-core_redis7
     ports:
       - 6379:6379
     volumes:
-      - redis6-data:/data
+      - redis7-data:/data
     networks:
       - qlico-core
 ```
@@ -38,8 +38,8 @@ Add the following YAML to the `volumes` section of your `docker-compose.yaml`
 file.
 
 ```yaml
-  redis6-data:
-    name: qlico-core_redis6-data
+  redis7-data:
+    name: qlico-core_redis7-data
 ```
 
 ## Example in a full docker-compose file
@@ -64,18 +64,18 @@ services:
     labels:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
-  redis6:
-    image: redis:6.2.4-alpine3.14
-    container_name: qlico-core_redis6
+  redis7:
+    image: redis:7.2.5-alpine3.20
+    container_name: qlico-core_redis7
     ports:
       - 6379:6379
     volumes:
-      - redis6-data:/data
+      - redis7-data:/data
     networks:
       - qlico-core
 volumes:
-  redis6-data:
-    name: qlico-core_redis6-data
+  redis7-data:
+    name: qlico-core_redis7-data
 networks:
   qlico-core:
     driver: bridge
