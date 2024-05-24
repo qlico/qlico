@@ -18,7 +18,7 @@ file.
 
 ```yaml
   minio:
-    image: minio/minio:RELEASE.2021-06-17T00-10-46Z
+    image: minio/minio:RELEASE.2024-05-10T01-41-38Z
     container_name: qlico-core_minio
     command: server /export
     environment:
@@ -65,7 +65,7 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
   minio:
-    image: minio/minio:RELEASE.2021-06-17T00-10-46Z
+    image: minio/minio:RELEASE.2024-05-10T01-41-38Z
     container_name: qlico-core_minio
     command: server /export
     environment:
