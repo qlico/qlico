@@ -21,6 +21,11 @@ workflow by using a hassle-free Docker stack.
 * [Docker >= 26.0](https://docs.docker.com/get-docker/){:target="_blank"}
 * [docker-compose >= 2.27.0](https://docs.docker.com/compose/install/){:target="_blank"}
 * [dnsmasq (optional, but recommended)](dnsmasq.md)
+* Basic knowledge of Docker and Docker Compose<br>
+  If you don't have any experience with Docker (yet), 
+  here are some starter resources, to get you up to speed:
+    * [Docker Get Started](https://docs.docker.com/get-started/){:target="_blank"} (You can skip "Share the application part" you do not need a Docker Hub account)
+    * [Docker for beginners](https://docker-curriculum.com/){:target="_blank"} (You do not need Amazon Web Services, just skip all the AWS Parts)
 
 ## Best Docker experience
 
