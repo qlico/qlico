@@ -3,7 +3,7 @@ FROM php:8.3.7-fpm-alpine3.19 as base
 LABEL maintainer="Qlico <hello@qlico.dev>"
 
 # PHP-FPM defaults
-ENV FCGI_CONNECT=9000
+ENV FCGI_CONNECT=/php-socket/php-fpm.sock
 ENV FCGI_BACKLOG=128
 ENV PHP_FPM_PM=dynamic
 ENV PHP_FPM_PM_MAX_CHILDREN=5
@@ -55,7 +55,9 @@ RUN apk add --no-cache --virtual .persistent-deps \
     && apk --no-cache -U upgrade \
     && rm -rf /tmp/* \
     && addgroup -g $LOCAL_GROUP_ID -S qlico \
-    && adduser -u $LOCAL_USER_ID -S qlico -G qlico
+    && adduser -u $LOCAL_USER_ID -S qlico -G qlico \
+    && mkdir -p /php-socket \
+    && chown qlico:qlico /php-socket
 
 # Install composer
 COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer.phar
