@@ -78,7 +78,7 @@ After you've clicked the button, the "red" light should be "green"<br>
 [For more information about breakpoints in PhpStorm, click here.](https://www.jetbrains.com/help/phpstorm/using-breakpoints.html)
 
 #### Open your project in a browser
-In my example: Visiting `http://xdebug-demo.qlico`
+In my example: Visiting `http://xdebug-example.qlico`
 
 #### Profit
 PhpStorm will automatically opens up, with Debug information
