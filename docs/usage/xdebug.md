@@ -82,10 +82,10 @@ After you've clicked the button, the "red" light should be "green"<br>
 In my example: Visiting `http://xdebug-example.qlico`
 
 #### Profit
-PhpStorm will automatically opens up, with Debug information
+PhpStorm will automatically open up, with Debug information
 ![phpstorm-debug-screen](/assets/img/xdebug/phpstorm-debug-screen.png "phpstorm-debug-screen")
 
-As you can see on the bottom of the screen: There is a debugger attached.
+As you can see at the bottom of the screen: There is a debugger attached.
 
 #### More information about using Debugging in PhpStorm
 
@@ -136,7 +136,7 @@ In my example: Visiting `http://xdebug-example.qlico`
 In Visual Studio Code
 ![vscode-debug-screen](/assets/img/xdebug/vscode-debug-screen.png "vscode-debug-screen")
 
-As you can see on the left of the screen: There is a debugger attached.
+As you can see at the left of the screen: There is a debugger attached.
 
 ## Debugging CLI scripts
 
@@ -153,4 +153,4 @@ xphp index.php
 ```
 
 It's the same process for [PhpStorm](#phpstorm) and [Visual Studio Code](#visual-studio-code), make sure to set it up first.
-Now PhpStorm or Visual Studio Code will open. By default the `php` alias inside Qlico do not have Xdebug enabled, because this can give side-effects, for example when running `composer install`.
+Now PhpStorm or Visual Studio Code will open. By default, the `php` alias inside Qlico do not have Xdebug enabled, because this can give side effects, for example when running `composer install`.

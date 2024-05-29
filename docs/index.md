@@ -4,7 +4,7 @@ Qlico is an open-source project that makes it easier to run your (web) project
 inside Docker, at the moment it’s just a set of configuration files.
 
 It aims to accelerate development teams by using Docker in their development
-workflow by using a hassle free Docker stack.
+workflow by using a hassle-free Docker stack.
 
 ## Why should I use Qlico instead of X?
 
@@ -53,7 +53,7 @@ Docker/Kubernetes, the name Qlico was used. Since naming things is hard ;-).
 
 ## Qlico in production?
 
-Qlico can be used in development and in production. Just use the `prod` stage of the the `Dockerfile` inside your project.
+Qlico can be used in development and in production. Just use the `prod` stage of the `Dockerfile` inside your project.
 Multiple companies are running Qlico in production (in a Kubernetes cluster) without any problems!
 If you need help, you can always contact [Tom](https://github.com/TomKeur) or [start a GitHub Discussion](https://github.com/qlico/qlico/discussions)
 
