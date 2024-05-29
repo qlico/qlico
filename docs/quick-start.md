@@ -81,6 +81,38 @@ Please keep in mind, we're not maintaining the PHP extensions, so if an PHP
 extension if not working, please do not open an issue in this repository.
 
 
+## How do I connect to services running in `qlico-core`?
+
+In this example we will use `postgres16` as an example service, based on
+[postgresql 16 example](examples/postgresql.md).
+
+### From your host machine
+
+You can connect to a service if you open the port in the `docker-compose.yaml`
+file, you can open the port by adding the following line to the service:
+
+```yaml title="qlico-core/docker-compose.yaml"
+services:
+  postgres16:
+    image: postgres:16-alpine
+    ports:
+      - 5432:5432
+``` 
+
+So in this example would connect to: `localhost:5432` to access the service.
+
+### From a container
+
+You can connect to services running in `qlico-core` by using the service name,
+for example, if you have a service called `postgres16` you can connect to it by
+using `postgres16` as the hostname.
+
+```yaml title="qlico-core/docker-compose.yaml"
+services:
+  postgres16:
+    image: postgres:16-alpine
+``` 
+
 ## dnsmasq
 
 For the best Qlico experience please install [dnsmasq](dnsmasq.md), it's not
