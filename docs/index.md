@@ -55,7 +55,7 @@ Docker/Kubernetes, the name Qlico was used. Since naming things is hard ;-).
 
 Qlico can be used in development and in production. Just use the `prod` stage of the the `Dockerfile` inside your project.
 Multiple companies are running Qlico in production (in a Kubernetes cluster) without any problems!
-If you need help, you can always contact [Tom](https://github.com/TomKeur) or [start a GitHub Discussion](https://.github.com/qlico/qlico/discussions)
+If you need help, you can always contact [Tom](https://github.com/TomKeur) or [start a GitHub Discussion](https://github.com/qlico/qlico/discussions)
 
 ## Contributing
 
