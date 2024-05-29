@@ -151,6 +151,14 @@ docker compose exec php ash
 ```shell
 xphp index.php
 ```
+This is also possible with Symfony and Laravel commands.
+```shell
+# Symfony
+xphp bin/console app:command
+
+# Laravel
+xphp artisan app:command
+```
 
 It's the same process for [PhpStorm](#phpstorm) and [Visual Studio Code](#visual-studio-code), make sure to set it up first.
 Now PhpStorm or Visual Studio Code will open. By default, the `php` alias inside Qlico do not have Xdebug enabled, because this can give side effects, for example when running `composer install`.
