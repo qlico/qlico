@@ -33,8 +33,12 @@ the [project-examples directory](https://github.com/qlico/qlico/tree/main/projec
 
 1. Copy the `qlico` folder (with all the files) to the (new or existing) project folder.
 2. Copy the `Dockerfile` to the root of the project folder.
+3. Copy the `qlico/.env.dist` to the `qlico` folder and rename it to `.env`.
+4. Edit the `.env` file to your needs.
 
-Note: Since PHP 8.3 we've renamed `Dockerfile.phpX` to `Dockerfile`, you can edit the `Dockerfile` for the version you want.
+Note: Since PHP 8.3 we've renamed `Dockerfile.phpX` to `Dockerfile`, you can
+edit the `Dockerfile` for the version you want. 
+We've also added connecting through a unix socket, instead of a port.
 
 ## Add / remove PHP extensions
 
