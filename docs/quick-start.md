@@ -14,8 +14,10 @@ cp dist/.env.dist .env
 cp dist/docker-compose.yaml docker-compose.yaml
 ```
 
-By default, Qlico only comes with a reverse proxy [Traefik](https://traefik.io/traefik/){:target="_blank"}, 
-if you would like more services use the Examples, for example Redis see the [Examples/Redis](examples/redis.md). 
+By default, Qlico only comes with a reverse proxy 
+[Traefik](https://traefik.io/traefik/){:target="_blank"},
+if you would like more services use the Examples, for example Redis see
+the [Examples/Redis](examples/redis.md).
 If you're missing a service, feel free to contribute!
 
 After customizing to your needs, you can do a `docker-compose up` inside
@@ -36,12 +38,17 @@ Note: Since PHP 8.3 we've renamed `Dockerfile.phpX` to `Dockerfile`, you can edi
 
 ## Add / remove PHP extensions
 
-Since the PHP 8.3 we've started using [docker-php-extension-installer](https://github.com/mlocati/docker-php-extension-installer/){:target="_blank"} by [Michele Locati](https://github.com/mlocati){:target="_blank"}.
+Since the PHP 8.3 we've started using 
+[docker-php-extension-installer](https://github.com/mlocati/docker-php-extension-installer/){:target="_blank"} 
+by [Michele Locati](https://github.com/mlocati){:target="_blank"}.
 
-If you want to add or remove an PHP extension, please see the [Supported PHP extensions](https://github.com/mlocati/docker-php-extension-installer/?tab=readme-ov-file#supported-php-extensions){:target="_blank"}.
+If you want to add or remove an PHP extension, please see the 
+[Supported PHP extensions](https://github.com/mlocati/docker-php-extension-installer/?tab=readme-ov-file#supported-php-extensions){:target="_blank"}.
 
-In your `Dockerfile` search for the following part, and remove/add PHP extensions you would like to use.
-We recommended to use the `-stable` suffix, to make sure you're using a stable version of the PHP extension.
+In your `Dockerfile` search for the following part, and remove/add PHP
+extensions you would like to use.
+We recommended to use the `-stable` suffix, to make sure you're using a stable
+version of the PHP extension.
 
 For example:
 
@@ -62,9 +69,12 @@ After:
             imagick-stable \
 ```
 
-**Note:** There are multiple stages inside the Dockerfile, if you want to run Qlico in production with for example (Datadog profiling), you'll only need to change the `install-php-extensions` in the `prod` stage.
+**Note:** There are multiple stages inside the Dockerfile, if you want to run
+Qlico in production with for example (Datadog profiling), you'll only need to
+change the `install-php-extensions` in the `prod` stage.
 
-Please keep in mind, we're not maintaining the PHP extensions, so if an PHP extension if not working, please do not open an issue in this repository.
+Please keep in mind, we're not maintaining the PHP extensions, so if an PHP
+extension if not working, please do not open an issue in this repository.
 
 
 ## dnsmasq
