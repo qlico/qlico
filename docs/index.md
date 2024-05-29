@@ -18,9 +18,20 @@ workflow by using a hassle-free Docker stack.
 
 ## Prerequisites
 
-* [Docker >= 20.10](https://docs.docker.com/get-docker/)
-* [docker-compose >= 1.28](https://docs.docker.com/compose/install/)
+* [Docker >= 26.0](https://docs.docker.com/get-docker/)
+* [docker-compose >= 2.27.0](https://docs.docker.com/compose/install/)
 * [dnsmasq (optional, but recommended)](dnsmasq.md)
+
+## Best Docker experience
+
+* If you are using Windows, we would like to recommend using [Docker Desktop with WSL2](https://www.docker.com/products/docker-desktop/).
+* If you are using macOS, we would like to recommend using [OrbStack](https://orbstack.dev/)
+* If you are running [Arch Linux, see this excellent wiki page](https://wiki.archlinux.org/title/docker)
+* If you are running Linux, please use the see the Docker documentation for your distribution.
+    * [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+    * [Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
+    * [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
+    * [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
 
 ## Getting started
 
