@@ -16,7 +16,7 @@ with the dominant license being GNU AGPL v3.
 Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   minio:
     image: minio/minio:RELEASE.2024-05-10T01-41-38Z
     container_name: qlico-core_minio
@@ -36,7 +36,7 @@ file.
 Add the following YAML to the `volumes` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   minio-data:
     name: qlico-core_minio-data
     driver: local
@@ -47,7 +47,7 @@ file.
 This is a large example, so you know where to place the MinIO service and
 volume.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
 ---
 # Author: Qlico <hello@qlico.dev>
 services:

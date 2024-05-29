@@ -18,7 +18,7 @@ plugin.
 Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   adminer:
     image: adminer:4.8.1-standalone
     container_name: qlico-core_adminer
@@ -33,7 +33,7 @@ file.
 
 This is a large example, so you know where to place the Adminer service.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
 ---
 # Author: Qlico <hello@qlico.dev>
 services:

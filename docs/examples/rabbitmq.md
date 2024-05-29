@@ -18,7 +18,7 @@ and federated configurations to meet high-scale, high-availability requirements.
 Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   rabbitmq3:
     image: rabbitmq:3.13.2-management-alpine
     container_name: qlico-core_rabbitmq3
@@ -37,7 +37,7 @@ file.
 Add the following YAML to the `volumes` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   rabbitmq3-data:
     name: qlico-core_rabbitmq3-data
 ```
@@ -47,7 +47,7 @@ file.
 This is a large example, so you know where to place the RabbitMQ service and
 volume.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
 ---
 # Author: Qlico <hello@qlico.dev>
 services:

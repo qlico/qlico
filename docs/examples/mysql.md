@@ -17,7 +17,7 @@ applications.
 Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   mysql8:
     image: mysql:8.0.37
     container_name: qlico-core_mysql8
@@ -37,7 +37,7 @@ file.
 Add the following YAML to the `volumes` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   mysql-data8:
     name: qlico-core_mysql8-data
     driver: local
@@ -48,7 +48,7 @@ file.
 This is a large example, so you know where to place the MySQL service and
 volume.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
 ---
 # Author: Qlico <hello@qlico.dev>
 services:
@@ -93,7 +93,7 @@ networks:
 Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   mysql5:
     image: mysql:5.7.44
     container_name: qlico-core_mysql5
@@ -124,7 +124,7 @@ file.
 This is a large example, so you know where to place the MySQL service and
 volume.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
 ---
 # Author: Qlico <hello@qlico.dev>
 services:

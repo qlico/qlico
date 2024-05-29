@@ -17,7 +17,7 @@ development, testing, staging and production.
 Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   blackfire:
     image: blackfire/blackfire:2
     container_name: qlico-core_blackfire
@@ -31,7 +31,7 @@ file.
 
 This is a large example, so you know where to place the Blackfire service.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
 ---
 # Author: Qlico <hello@qlico.dev>
 services:

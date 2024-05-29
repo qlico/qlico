@@ -16,7 +16,7 @@ the world.
 Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   pgadmin4:
     container_name: qlico-core_pgadmin
     image: dpage/pgadmin4
@@ -35,7 +35,7 @@ file.
 Add the following YAML to the `volumes` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   pgadmin4-data:
     name: qlico-core_pgadmin4-data
 ```
@@ -43,7 +43,7 @@ file.
 This is a large example, so you know where to place the pgAdmin service and
 volume.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
 ---
 # Author: Qlico <hello@qlico.dev>
 services:

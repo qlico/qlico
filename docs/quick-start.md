@@ -49,7 +49,7 @@ For example:
 Edit `Dockerfile`
 
 Before:
-```Docker
+```Dockerfile title="Dockerfile"
     && install-php-extensions \
             APCu-stable \
             bcmath-stable \
@@ -57,7 +57,7 @@ Before:
 If you want to add `imagick` and remove `bcmath` you can change it to:
 
 After:
-```Docker
+```Dockerfile title="Dockerfile"
     && install-php-extensions \
             APCu-stable \
             imagick-stable \

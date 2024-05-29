@@ -22,7 +22,7 @@ The name Redis means REmote DIctionary Server.
 Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   redis7:
     image: redis:7.2.5-alpine3.20
     container_name: qlico-core_redis7
@@ -37,7 +37,7 @@ file.
 Add the following YAML to the `volumes` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   redis7-data:
     name: qlico-core_redis7-data
 ```
@@ -47,7 +47,7 @@ file.
 This is a large example, so you know where to place the Redis service and
 volume.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
 ---
 # Author: Qlico <hello@qlico.dev>
 services:

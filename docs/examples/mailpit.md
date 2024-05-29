@@ -19,7 +19,7 @@ captured emails, and contains an API for automated integration testing.
 Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   mailpit:
     image: axllent/mailpit:v1.18.3
     container_name: qlico-core_mailpit
@@ -45,7 +45,7 @@ file.
 
 This is a large example, so you know where to place the Mailpit service.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
 ---
 # Author: Qlico <hello@qlico.dev>
 services:

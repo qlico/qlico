@@ -24,7 +24,7 @@ time.
 Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   percona5:
     image: percona:5.7.44-centos
     container_name: qlico-core_percona5
@@ -44,7 +44,7 @@ file.
 Add the following YAML to the `volumes` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   percona5-data:
     name: qlico-core_percona5-data
     driver: local
@@ -55,7 +55,7 @@ file.
 Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   percona8:
     image: percona:8.0.36-28-centos
     container_name: qlico-core_percona8
@@ -75,7 +75,7 @@ file.
 Add the following YAML to the `volumes` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   percona8-data:
     name: qlico-core_percona8-data
     driver: local
@@ -86,7 +86,7 @@ file.
 This is a large example, so you know where to place the Percona service(s) and
 volume(s).
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
 ---
 # Author: Qlico <hello@qlico.dev>
 services:

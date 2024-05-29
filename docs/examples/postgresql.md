@@ -16,7 +16,7 @@ reliability, feature robustness, and performance.
 Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   postgres16:
     image: postgres:16-alpine
     container_name: qlico-core_postgres14
@@ -36,7 +36,7 @@ file.
 Add the following YAML to the `volumes` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   postgres16-data:
     name: qlico-core_postgres16-data
 ```
@@ -46,7 +46,7 @@ file.
 This is a large example, so you know where to place the PostgreSQL service and
 volume.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
 ---
 # Author: Qlico <hello@qlico.dev>
 services:

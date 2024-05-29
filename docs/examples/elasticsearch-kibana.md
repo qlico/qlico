@@ -24,7 +24,7 @@ query load to understanding the way requests flow through your apps.
 Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   elasticsearch8:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
     container_name: qlico-core_elasticsearch8
@@ -51,7 +51,7 @@ file.
 Add the following YAML to the `volumes` section of your `docker-compose.yaml`
 file.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   elasticsearch8-data:
     name: qlico-core_elasticsearch8-data
     driver: local
@@ -62,7 +62,7 @@ file.
 Add the following YAML to the `services` section of your `docker-compose.yaml`
 file. Make sure you're running Elasticsearch!
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
   kibana8:
     image: docker.elastic.co/kibana/kibana:8.13.4
     container_name: qlico-core_kibana8
@@ -85,7 +85,7 @@ file. Make sure you're running Elasticsearch!
 This is a large example, so you know where to place the Elasticsearch & Kibana
 service and volume.
 
-```yaml
+```yaml title="qlico-core/docker-compose.yaml"
 ---
 # Author: Qlico <hello@qlico.dev>
 services:
