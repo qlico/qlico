@@ -4,6 +4,10 @@ theme:
   features:
     - navigation.tracking
     - navigation.expand
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
   logo: "assets/qlico-icon.png"
   favicon: "assets/qlico-icon.png"
   palette:
