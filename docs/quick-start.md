@@ -14,10 +14,9 @@ cp dist/.env.dist .env
 cp dist/docker-compose.yaml docker-compose.yaml
 ```
 
-By default, Qlico only comes with a reverse proxy (Traefik), if you would like
-more services use the Examples, for example Redis see
-the [Examples/Redis](examples/redis.md). If you're missing a service, feel free
-to contribute!
+By default, Qlico only comes with a reverse proxy [Traefik](https://traefik.io/traefik/), 
+if you would like more services use the Examples, for example Redis see the [Examples/Redis](examples/redis.md). 
+If you're missing a service, feel free to contribute!
 
 After customizing to your needs, you can do a `docker-compose up` inside
 the `qlico-core` folder.
