@@ -52,6 +52,8 @@ nav:
   - Setup:
       - Quick start: quick-start.md
       - dnsmasq: dnsmasq.md
+  - Usage:
+    - Debugging with Xdebug: usage/xdebug.md
   - Examples:
       - Adminer: examples/adminer.md
       - Blackfire: examples/blackfire.md
