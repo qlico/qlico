@@ -15,9 +15,9 @@ query load to understanding the way requests flow through your apps.
 
 ## More information about Elasticsearch & Kibana
 
-* [Elasticsearch website](https://www.elastic.co/elasticsearch/)
-* [Kibana website](https://www.elastic.co/kibana)
-* [Elastic Docker Images](https://www.docker.elastic.co/)
+* [Elasticsearch website](https://www.elastic.co/elasticsearch/){:target="_blank"}
+* [Kibana website](https://www.elastic.co/kibana){:target="_blank"}
+* [Elastic Docker Images](https://www.docker.elastic.co/){:target="_blank"}
 
 ## How to add Elasticsearch to Qlico?
 

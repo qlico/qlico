@@ -8,8 +8,8 @@ the world.
 
 ## More information about pgAdmin
 
-* [pgAdmin website](https://www.pgadmin.org/)
-* [pgAdmin on Docker Hub](https://hub.docker.com/r/dpage/pgadmin4)
+* [pgAdmin website](https://www.pgadmin.org/){:target="_blank"}
+* [pgAdmin on Docker Hub](https://hub.docker.com/r/dpage/pgadmin4){:target="_blank"}
 
 ## How to add pgAdmin to Qlico?
 

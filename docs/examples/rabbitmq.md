@@ -10,8 +10,8 @@ and federated configurations to meet high-scale, high-availability requirements.
 
 ## More information about RabbitMQ
 
-* [RabbitMQ website](https://www.rabbitmq.com/)
-* [RabbitMQ on Docker Hub](https://hub.docker.com/_/rabbitmq)
+* [RabbitMQ website](https://www.rabbitmq.com/){:target="_blank"}
+* [RabbitMQ on Docker Hub](https://hub.docker.com/_/rabbitmq){:target="_blank"}
 
 ## How to add RabbitMQ to Qlico?
 

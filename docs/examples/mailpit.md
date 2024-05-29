@@ -10,9 +10,9 @@ captured emails, and contains an API for automated integration testing.
 
 ## More information about Mailpit
 
-* [Mailpit website](https://mailpit.axllent.org/)
-* [Mailpit GitHub project](https://github.com/axllent/mailpit)
-* [Mailpit on Docker Hub](https://hub.docker.com/r/axllent/mailpit)
+* [Mailpit website](https://mailpit.axllent.org/){:target="_blank"}
+* [Mailpit GitHub project](https://github.com/axllent/mailpit){:target="_blank"}
+* [Mailpit on Docker Hub](https://hub.docker.com/r/axllent/mailpit){:target="_blank"}
 
 ## How to add Mailpit to Qlico?
 

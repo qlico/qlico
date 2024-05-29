@@ -9,8 +9,8 @@ development, testing, staging and production.
 
 ## More information about Blackfire
 
-* [Blackfire website](https://www.blackfire.io/)
-* [Blackfire on Docker Hub](https://hub.docker.com/r/blackfire/blackfire)
+* [Blackfire website](https://www.blackfire.io/){:target="_blank"}
+* [Blackfire on Docker Hub](https://hub.docker.com/r/blackfire/blackfire){:target="_blank"}
 
 ## How to add Blackfire to Qlico?
 

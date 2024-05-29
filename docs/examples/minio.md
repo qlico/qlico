@@ -8,8 +8,8 @@ with the dominant license being GNU AGPL v3.
 
 ## More information about MinIO
 
-* [MinIO website](https://min.io/)
-* [MinIO on Docker Hub](https://hub.docker.com/r/minio/minio)
+* [MinIO website](https://min.io/){:target="_blank"}
+* [MinIO on Docker Hub](https://hub.docker.com/r/minio/minio){:target="_blank"}
 
 ## How to add MinIO to Qlico?
 

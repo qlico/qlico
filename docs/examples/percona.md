@@ -11,8 +11,8 @@ scalability and instrumentation.
 
 ## More information about Percona
 
-* [Percona server website](https://www.percona.com/software/mysql-database/percona-server)
-* [Percona server on Docker Hub](https://hub.docker.com/_/percona)
+* [Percona server website](https://www.percona.com/software/mysql-database/percona-server){:target="_blank"}
+* [Percona server on Docker Hub](https://hub.docker.com/_/percona){:target="_blank"}
 
 ## How to add Percona to Qlico?
 

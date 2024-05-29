@@ -10,8 +10,8 @@ plugin.
 
 ## More information about Adminer
 
-* [Adminer website](https://www.adminer.org/)
-* [Adminer on Docker Hub](https://hub.docker.com/_/adminer)
+* [Adminer website](https://www.adminer.org/){:target="_blank"}
+* [Adminer on Docker Hub](https://hub.docker.com/_/adminer){:target="_blank"}
 
 ## How to add Adminer to Qlico?
 

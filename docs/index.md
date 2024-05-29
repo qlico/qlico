@@ -18,20 +18,24 @@ workflow by using a hassle-free Docker stack.
 
 ## Prerequisites
 
-* [Docker >= 26.0](https://docs.docker.com/get-docker/)
-* [docker-compose >= 2.27.0](https://docs.docker.com/compose/install/)
+* [Docker >= 26.0](https://docs.docker.com/get-docker/){:target="_blank"}
+* [docker-compose >= 2.27.0](https://docs.docker.com/compose/install/){:target="_blank"}
 * [dnsmasq (optional, but recommended)](dnsmasq.md)
 
 ## Best Docker experience
 
-* If you are using Windows, we would like to recommend using [Docker Desktop with WSL2](https://www.docker.com/products/docker-desktop/).
-* If you are using macOS, we would like to recommend using [OrbStack](https://orbstack.dev/)
-* If you are running [Arch Linux, see this excellent wiki page](https://wiki.archlinux.org/title/docker)
-* If you are running Linux, please use the see the Docker documentation for your distribution.
-    * [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-    * [Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
-    * [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
-    * [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
+* If you are using Windows, we would like to recommend
+  using [Docker Desktop with WSL2](https://www.docker.com/products/docker-desktop/){:target="_blank"}.
+* If you are using macOS, we would like to recommend
+  using [OrbStack](https://orbstack.dev/){:target="_blank"}
+* If you are
+  running [Arch Linux, see this excellent wiki page](https://wiki.archlinux.org/title/docker){:target="_blank"}
+* If you are running Linux, please use the see the Docker documentation for your
+  distribution.
+    * [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/){:target="_blank"}
+    * [Debian](https://docs.docker.com/install/linux/docker-ce/debian/){:target="_blank"}
+    * [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/){:target="_blank"}
+    * [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/){:target="_blank"}
 
 ## Getting started
 
@@ -46,8 +50,9 @@ version per project, all the projects were using php5, php7 or something else
 depending on the url.
 
 This has helped us to adopt Docker in our development workflow, but after a
-while the old stack was not maintainable anymore, that's when [Tom](https://github.com/TomKeur) decided to
-create a new stack with a smaller footprint, and easier to update.
+while the old stack was not maintainable anymore, that's
+when [Tom](https://github.com/TomKeur){:target="_blank"} decided to create a new
+stack with a smaller footprint, and easier to update.
 
 Qlico was born.
 
@@ -57,16 +62,21 @@ In the Netherlands there are plastic trash cans, called Kliko's. Because these
 are "containers", and we're using a lot of containers inside of
 Docker/Kubernetes, the name Qlico was used. Since naming things is hard ;-).
 
-> There are only two hard things in Computer Science: cache invalidation and naming things.
+> There are only two hard things in Computer Science: cache invalidation and
+> naming things.
+
 > -- Phil Karlton
 
 [Picture of Kliko's](https://nl.wikipedia.org/wiki/Minicontainer#/media/Bestand:Kliko_op_Bonaire,_Nederlandse_Antillen_-_IMG_8372.JPG)
 
 ## Qlico in production?
 
-Qlico can be used in development and in production. Just use the `prod` stage of the `Dockerfile` inside your project.
-Multiple companies are running Qlico in production (in a Kubernetes cluster) without any problems!
-If you need help, you can always contact [Tom](https://github.com/TomKeur) or [start a GitHub Discussion](https://github.com/qlico/qlico/discussions)
+Qlico can be used in development and in production. Just use the `prod` stage of
+the `Dockerfile` inside your project.
+Multiple companies are running Qlico in production (in a Kubernetes cluster)
+without any problems!
+If you need help, you can always contact [Tom](https://github.com/TomKeur){:target="_blank"} 
+or [start a GitHub Discussion](https://github.com/qlico/qlico/discussions){:target="_blank"}
 
 ## Contributing
 

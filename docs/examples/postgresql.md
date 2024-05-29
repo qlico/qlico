@@ -8,8 +8,8 @@ reliability, feature robustness, and performance.
 
 ## More information about PostgreSQL
 
-* [PostgreSQL website](https://www.postgresql.org/)
-* [PostgreSQL on Docker Hub](https://hub.docker.com/_/postgres)
+* [PostgreSQL website](https://www.postgresql.org/){:target="_blank"}
+* [PostgreSQL on Docker Hub](https://hub.docker.com/_/postgres){:target="_blank"}
 
 ## How to add PostgreSQL to Qlico?
 

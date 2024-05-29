@@ -14,7 +14,7 @@ cp dist/.env.dist .env
 cp dist/docker-compose.yaml docker-compose.yaml
 ```
 
-By default, Qlico only comes with a reverse proxy [Traefik](https://traefik.io/traefik/), 
+By default, Qlico only comes with a reverse proxy [Traefik](https://traefik.io/traefik/){:target="_blank"}, 
 if you would like more services use the Examples, for example Redis see the [Examples/Redis](examples/redis.md). 
 If you're missing a service, feel free to contribute!
 
@@ -36,9 +36,9 @@ Note: Since PHP 8.3 we've renamed `Dockerfile.phpX` to `Dockerfile`, you can edi
 
 ## Add / remove PHP extensions
 
-Since the PHP 8.3 we've started using [docker-php-extension-installer](https://github.com/mlocati/docker-php-extension-installer/) by [Michele Locati](https://github.com/mlocati).
+Since the PHP 8.3 we've started using [docker-php-extension-installer](https://github.com/mlocati/docker-php-extension-installer/){:target="_blank"} by [Michele Locati](https://github.com/mlocati){:target="_blank"}.
 
-If you want to add or remove an PHP extension, please see the [Supported PHP extensions](https://github.com/mlocati/docker-php-extension-installer/?tab=readme-ov-file#supported-php-extensions).
+If you want to add or remove an PHP extension, please see the [Supported PHP extensions](https://github.com/mlocati/docker-php-extension-installer/?tab=readme-ov-file#supported-php-extensions){:target="_blank"}.
 
 In your `Dockerfile` search for the following part, and remove/add PHP extensions you would like to use.
 We recommended to use the `-stable` suffix, to make sure you're using a stable version of the PHP extension.

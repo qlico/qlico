@@ -63,7 +63,7 @@ sudo systemctl reload NetworkManager.service
 ## macOS
 
 To use dnsmasq on macOS we need to install it first, make sure you
-have [homebrew](https://brew.sh/) installed.
+have [homebrew](https://brew.sh/){:target="_blank"} installed.
 
 After that open your favourite Terminal, and run the following commands.
 

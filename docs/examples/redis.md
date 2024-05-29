@@ -14,8 +14,8 @@ The name Redis means REmote DIctionary Server.
 
 # More information about Redis
 
-* [Redis website](https://redis.io/)
-* [Redis on Docker Hub](https://hub.docker.com/_/redis)
+* [Redis website](https://redis.io/){:target="_blank"}
+* [Redis on Docker Hub](https://hub.docker.com/_/redis){:target="_blank"}
 
 ## How to add Redis to Qlico?
 

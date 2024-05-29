@@ -8,8 +8,8 @@ applications.
 
 ## More information about MySQL
 
-* [MySQL website](https://www.mysql.com/)
-* [MySQL on Docker Hub](https://hub.docker.com/_/mysql)
+* [MySQL website](https://www.mysql.com/){:target="_blank"}
+* [MySQL on Docker Hub](https://hub.docker.com/_/mysql){:target="_blank"}
 
 ## How to add MySQL 8 to Qlico?
 
