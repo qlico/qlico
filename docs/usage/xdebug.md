@@ -49,6 +49,7 @@ XDEBUG_CLIENT_HOST=host.docker.internal
 ## Configure your IDE
 
 * [PhpStorm](#phpstorm)
+* [Visual Studio Code](#visual-studio-code)
 
 
 ### PhpStorm
@@ -86,7 +87,58 @@ PhpStorm will automatically opens up, with Debug information
 
 As you can see on the bottom of the screen: There is a debugger attached.
 
-### Debugging CLI scripts
+#### More information about using Debugging in PhpStorm
+
+- [Debug tool window](https://www.jetbrains.com/help/phpstorm/debug-tool-window.html)
+- [Step through the program](https://www.jetbrains.com/help/phpstorm/stepping-through-the-program.html)
+
+
+### Visual Studio Code
+
+To enable debugging in Visual Studio Code, please install the [PHP Debug plugin by Xdebug](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug) first.
+
+After installation, in your project open: `.vscode/launch.json`
+
+And add the following snippet:
+
+```json title=".vscode/launch.json"
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Listen for Xdebug",
+            "type": "php",
+            "request": "launch",
+            "hostname": "0.0.0.0",
+            "port": 9003,
+            "pathMappings": {
+                "/var/www/html": "${workspaceFolder}"
+            }
+        }
+    ]
+}
+```
+
+#### How to start a debug session
+
+#### Go to Run: "Start debugging"
+
+#### Add a breakpoint in VSCode
+![vscode-add-breakpoint](/assets/img/xdebug/vscode-add-breakpoint.png "vscode-add-breakpoint")
+
+#### Open your project in a browser
+In my example: Visiting `http://xdebug-example.qlico`
+
+#### Profit
+In Visual Studio Code
+![vscode-debug-screen](/assets/img/xdebug/vscode-debug-screen.png "vscode-debug-screen")
+
+As you can see on the left of the screen: There is a debugger attached.
+
+## Debugging CLI scripts
 
 If you want to debug a CLI PHP Script, please use the alias: `xphp` inside the running PHP Container
 
@@ -100,10 +152,5 @@ docker compose exec php ash
 xphp index.php
 ```
 
-Now PhpStorm will open. By default the `php` alias inside Qlico do not have Xdebug enabled, because this can give side-effects, for example when running `composer install`.
-
-
-### More information about using Debugging in PhpStorm
-
-- [Debug tool window](https://www.jetbrains.com/help/phpstorm/debug-tool-window.html)
-- [Step through the program](https://www.jetbrains.com/help/phpstorm/stepping-through-the-program.html)
+It's the same process for [PhpStorm](#phpstorm) and [Visual Studio Code](#visual-studio-code), make sure to set it up first.
+Now PhpStorm or Visual Studio Code will open. By default the `php` alias inside Qlico do not have Xdebug enabled, because this can give side-effects, for example when running `composer install`.
