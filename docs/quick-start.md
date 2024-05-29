@@ -20,7 +20,7 @@ if you would like more services use the Examples, for example Redis see
 the [Examples/Redis](examples/redis.md).
 If you're missing a service, feel free to contribute!
 
-After customizing to your needs, you can do a `docker-compose up` inside
+After customizing to your needs, you can do a `docker compose up` inside
 the `qlico-core` folder.
 
 Congratulations, you're now running `qlico-core`.
