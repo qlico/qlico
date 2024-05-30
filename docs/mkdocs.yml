@@ -54,6 +54,7 @@ nav:
       - Quick start: quick-start.md
       - dnsmasq: dnsmasq.md
   - Usage:
+    - Qlico architecture: usage/qlico-architecture.md
     - Debugging with Xdebug: usage/xdebug.md
   - Examples:
       - Adminer: examples/adminer.md

@@ -25,6 +25,8 @@ the `qlico-core` folder.
 
 Congratulations, you're now running `qlico-core`.
 
+More information about Qlico architecture can be found in the [Qlico architecture](usage/qlico-architecture.md) page.
+
 ## Adding Qlico to your (existing) project(s)
 
 To start using Qlico, you'll need a `qlico` folder and `Dockerfile` inside
