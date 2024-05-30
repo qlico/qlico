@@ -1,4 +1,4 @@
-# src: https://github.com/qlico/qlico/blob/14f429ea9fde864956256f1098ca50258e1f79d9/project-examples/Dockerfile.php83
+# src: https://github.com/qlico/qlico/blob/98f287ff4fcb050de2906eae59d3a6dcc75c2fe8/project-examples/Dockerfile
 FROM php:8.3.7-fpm-alpine3.20 as base
 LABEL maintainer="Qlico <hello@qlico.dev>"
 
