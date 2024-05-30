@@ -311,6 +311,11 @@ services:
       - "traefik.http.services.${PROJECT_NAME}_nginx.loadbalancer.server.port=8080"
     networks:
       - qlico-core
+
+networks:
+  qlico-core:
+    external: true
+    name: qlico-core
 ```
 
 ### The `.env` file from this Go microservice
