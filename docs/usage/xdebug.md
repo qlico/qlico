@@ -107,6 +107,11 @@ To enable debugging in Visual Studio Code, please install
 the [PHP Debug plugin by Xdebug](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug){:target="_blank"}
 first.
 
+A small note on the plugin: This plugin does not support multiple debugging
+sessions at the same time.
+See this GitHub issue for more information:
+[Multiple debugging sessions](https://github.com/xdebug/vscode-php-debug/issues/522){:target="_blank"}
+
 After installation, in your project open: `.vscode/launch.json`
 
 And add the following snippet:
