@@ -14,7 +14,7 @@ cp dist/.env.dist .env
 cp dist/docker-compose.yaml docker-compose.yaml
 ```
 
-By default, Qlico only comes with a reverse proxy 
+By default, Qlico only comes with a reverse proxy
 [Traefik](https://traefik.io/traefik/){:target="_blank"},
 if you would like more services use the Examples, for example Redis see
 the [Examples/Redis](examples/redis.md).
@@ -37,16 +37,16 @@ the [project-examples directory](https://github.com/qlico/qlico/tree/main/projec
 4. Edit the `.env` file to your needs.
 
 Note: Since PHP 8.3 we've renamed `Dockerfile.phpX` to `Dockerfile`, you can
-edit the `Dockerfile` for the version you want. 
+edit the `Dockerfile` for the version you want.
 We've also added connecting through a unix socket, instead of a port.
 
 ## Add / remove PHP extensions
 
-Since the PHP 8.3 we've started using 
-[docker-php-extension-installer](https://github.com/mlocati/docker-php-extension-installer/){:target="_blank"} 
+Since the PHP 8.3 we've started using
+[docker-php-extension-installer](https://github.com/mlocati/docker-php-extension-installer/){:target="_blank"}
 by [Michele Locati](https://github.com/mlocati){:target="_blank"}.
 
-If you want to add or remove an PHP extension, please see the 
+If you want to add or remove an PHP extension, please see the
 [Supported PHP extensions](https://github.com/mlocati/docker-php-extension-installer/?tab=readme-ov-file#supported-php-extensions){:target="_blank"}.
 
 In your `Dockerfile` search for the following part, and remove/add PHP
@@ -97,7 +97,7 @@ services:
     image: postgres:16-alpine
     ports:
       - 5432:5432
-``` 
+```
 
 So in this example would connect to: `localhost:5432` to access the service.
 
@@ -111,7 +111,7 @@ using `postgres16` as the hostname.
 services:
   postgres16:
     image: postgres:16-alpine
-``` 
+```
 
 ## dnsmasq
 

@@ -28,7 +28,7 @@ name your projects: `project-api` and `project-frontend`. If these names are not
 unique, you will not be able to debug multiple projects at the same time.
 
 `XDEBUG_MODE=develop,debug` this setting controls which Xdebug features are
-enabled. 
+enabled.
 [More information about the different modes](https://xdebug.org/docs/all_settings#mode){:target="_blank"}
 
 `XDEBUG_CLIENT_HOST` for macOS users this should be: `host.docker.internal`
