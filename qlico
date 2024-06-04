@@ -1,0 +1,162 @@
+#!/bin/bash
+
+QLICO_CORE_DIR=~/qlico-core
+QLICO_PROJECTS_DIR=~/qlico-core/projects
+
+QLICO_PHP=php
+QLICO_NODEJS=nodejs
+
+
+function help {
+    cat << EOF
+Command line interface for the Qlico docker-based web development environment.
+
+Usage:
+    qlico <project> <command> [arguments]
+
+Available commands:
+    artisan ................................... Run a Laravel artisan command
+    build ..................................... Build all of the images or the specified one
+    composer .................................. Run a Composer command
+    console ................................... Run a Symfony console command
+    destroy ................................... Remove the entire Docker environment
+    down ...................................... Stop and destroy container(s)
+    logs ...................................... Display and tail the logs of all containers or the specified one's
+    npm ....................................... Run a NPM command
+    refresh ................................... Shortcut for stopping and starting the containers
+    restart ................................... Restart the containers
+    run ....................................... Run a command within the php container
+    stop ...................................... Stop the containers
+    up ........................................ Start the containers
+    xphp ...................................... Run a PHP command with Xdebug
+    yarn ...................................... Run a Yarn command
+
+EOF
+}
+
+function artisan {
+    docker compose run --rm "$QLICO_PHP" artisan "${@:1}"
+}
+
+function build {
+    docker compose build "${@:1}"
+}
+
+function console {
+    docker compose run --rm "$QLICO_PHP" bin/console "${@:1}"
+}
+
+function composer {
+    docker compose run --rm "$QLICO_PHP" composer "${@:1}"
+}
+
+function destroy {
+    read -p "This will delete containers, volumes and images. Are you sure? [y/N]: " -r
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then exit; fi
+    docker compose down -v --rmi all --remove-orphans
+}
+
+function down {
+    docker compose down "${@:1}"
+}
+
+function logs {
+    docker compose logs -f "${@:1}"
+}
+
+function npm {
+    docker compose run --rm "$QLICO_NODEJS" npm "${@:1}"
+}
+
+function refresh {
+    stop && up
+}
+
+function restart {
+    docker compose restart
+}
+
+function run {
+    docker compose run --rm "$QLICO_PHP" "${@:1}"
+}
+
+function stop {
+    docker compose stop
+}
+
+function up {
+    docker compose up -d "${@:1}"
+}
+
+function xphp {
+    docker compose run --rm "$QLICO_PHP" xphp "${@:1}"
+}
+
+function yarn {
+    docker compose run --rm "$QLICO_NODEJS" yarn "${@:1}"
+}
+
+if [ $# -lt 2 ]; then
+    help
+    exit 1
+fi
+
+if [ $1 = 'core' ]; then
+    cd "$QLICO_CORE_DIR"
+else
+    cd "$QLICO_PROJECTS_DIR/$1/qlico"
+fi
+
+case "$2" in
+    artisan)
+        artisan "${@:3}"
+        ;;
+    build)
+        build "${@:3}"
+        ;;
+    console)
+        console "${@:3}"
+        ;;
+    composer)
+        composer "${@:3}"
+        ;;
+    destroy)
+        destroy "${@:3}"
+        ;;
+    down)
+        down "${@:3}"
+        ;;
+    logs)
+        logs "${@:3}"
+        ;;
+    npm)
+        npm "${@:3}"
+        ;;
+    refresh)
+        refresh "${@:3}"
+        ;;
+    restart)
+        restart "${@:3}"
+        ;;
+    run)
+        run "${@:3}"
+        ;;
+    stop)
+        stop "${@:3}"
+        ;;
+    up)
+        up "${@:3}"
+        ;;
+    xphp)
+        xphp "${@:3}"
+        ;;
+    yarn)
+        yarn "${@:3}"
+        ;;
+    *)
+        echo "Unknown command $2"
+        exit 1
+        ;;
+esac
+
+cd -
