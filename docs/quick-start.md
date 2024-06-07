@@ -27,20 +27,33 @@ Congratulations, you're now running `qlico-core`.
 
 More information about Qlico architecture can be found in the [Qlico architecture](usage/qlico-architecture.md) page.
 
-## Adding Qlico to your (existing) project(s)
+## Adding Qlico to your (existing) project(s) - NGINX (default)
 
 To start using Qlico, you'll need a `qlico` folder and `Dockerfile` inside
 your (existing) project. You can find these files in
 the [project-examples directory](https://github.com/qlico/qlico/tree/main/project-examples).
 
-1. Copy the `qlico` folder (with all the files) to the (new or existing) project folder.
+1. Copy the `project/examples/qlico` folder (with all the files) to the (new or existing) project folder.
+2. Copy the `projects/examples/Dockerfile` to the root of the project folder.
+3. Copy the `qlico/.env.dist` to the `qlico` folder and rename it to `.env`.
+4. Edit the `.env` file to your needs.
+
+## Adding Qlico to your (existing) project(s) - Apache2
+
+To start using Qlico, you'll need a `qlico` folder and `Dockerfile` inside
+your (existing) project. You can find these files in
+the [project-examples directory](https://github.com/qlico/qlico/tree/main/project-examples).
+
+1. Copy the `project/examples/qlico-apache2` folder (with all the files) to the (new or existing) project folder as `qlico`, so make sure to rename `qlico-apache` to `qlico`.
 2. Copy the `Dockerfile` to the root of the project folder.
 3. Copy the `qlico/.env.dist` to the `qlico` folder and rename it to `.env`.
 4. Edit the `.env` file to your needs.
 
-Note: Since PHP 8.3 we've renamed `Dockerfile.phpX` to `Dockerfile`, you can
-edit the `Dockerfile` for the version you want.
-We've also added connecting through a unix socket, instead of a port.
+!!! note
+
+    Since PHP 8.3 we've renamed `Dockerfile.phpX` to `Dockerfile`, you can
+    edit the `Dockerfile` for the version you want.
+    We've also added connecting through a unix socket, instead of a port.
 
 ## Add / remove PHP extensions
 

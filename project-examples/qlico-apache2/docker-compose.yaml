@@ -1,0 +1,48 @@
+# Author: Qlico <hello@qlico.dev>
+---
+services:
+  apache2:
+    image: httpd:2.4.59-bookworm
+    container_name: ${PROJECT_NAME}_apache2
+    volumes:
+      - ./services/apache2/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ../:/var/www/html
+      - php-socket:/php-socket
+    depends_on:
+      - php
+    labels:
+      # use this if you have multiple subdomains using this project
+      #- "traefik.http.routers.${PROJECT_NAME}_apache2.rule=HostRegexp(`{subdomain:api|assets|www}.${PROJECT_HOST}`)"
+      - "traefik.http.routers.${PROJECT_NAME}_apache2.rule=Host(`${PROJECT_HOST}`)"
+      - "traefik.http.services.${PROJECT_NAME}_apache2.loadbalancer.server.port=8080"
+    networks:
+      - qlico-core
+  php:
+    build:
+      context: ../
+      target: dev
+    container_name: ${PROJECT_NAME}_php
+    volumes:
+      - ../:/var/www/html
+      - ~/.composer:/home/qlico/.composer
+      - php-socket:/php-socket
+    environment:
+      - PHP_IDE_CONFIG=serverName=${PROJECT_NAME}
+    networks:
+      - qlico-core
+    env_file:
+      - .env
+  nodejs:
+    build: services/nodejs
+    container_name: ${PROJECT_NAME}_nodejs
+    volumes:
+      - ../:/var/www/html:cached
+    networks:
+      - qlico-core
+volumes:
+  php-socket:
+    driver: local
+networks:
+  qlico-core:
+    external: true
+    name: qlico-core
