@@ -57,6 +57,7 @@ nav:
     - Qlico architecture: usage/qlico-architecture.md
     - Qlico CLI: usage/qlico-cli.md
     - Debugging with Xdebug: usage/xdebug.md
+    - Enabling TLS/SSL: usage/TLS-SSL.md
   - Examples:
       - Adminer: examples/adminer.md
       - Blackfire: examples/blackfire.md
