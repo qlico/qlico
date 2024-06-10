@@ -27,4 +27,4 @@ requests==2.32.2
 six==1.16.0
 urllib3==2.0.4
 watchdog==4.0.1
-zipp==3.19.1
+zipp==3.19.2
