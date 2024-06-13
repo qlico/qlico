@@ -13,7 +13,7 @@ services:
       - php
     labels:
       # use this if you have multiple subdomains using this project
-      #kk- "traefik.http.routers.${PROJECT_NAME}_nginx.rule=HostRegexp(`{subdomain:api|assets|www}.${PROJECT_HOST}`)"
+      # - "traefik.http.routers.${PROJECT_NAME}_nginx.rule=HostRegexp(`{subdomain:api|assets|www}.${PROJECT_HOST}`)"
       - "traefik.http.routers.${PROJECT_NAME}_nginx.rule=Host(`${PROJECT_HOST}`)"
       - "traefik.http.services.${PROJECT_NAME}_nginx.loadbalancer.server.port=8080"
     networks:
