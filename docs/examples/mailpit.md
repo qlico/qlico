@@ -21,11 +21,11 @@ file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
   mailpit:
-    image: axllent/mailpit:v1.18.3
+    image: axllent/mailpit:v1.19.0
     container_name: qlico-core_mailpit
     restart: always
     volumes:
-      - 'mailpit-data/data'
+      - mailpit-data:/data
     ports:
       - 8025:8025
       - 1025:1025
@@ -63,11 +63,11 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
   mailpit:
-    image: axllent/mailpit:v1.18.3
+    image: axllent/mailpit:v1.19.0
     container_name: qlico-core_mailpit
     restart: always
     volumes:
-      - 'mailpit-data/data'
+      - mailpit-data:/data
     ports:
       - 8025:8025
       - 1025:1025
