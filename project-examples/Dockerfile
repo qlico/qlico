@@ -84,7 +84,7 @@ USER qlico
 
 CMD ["php-fpm"]
 
-FROM base as dev
+FROM base AS dev
 USER root
 
 RUN apk add --no-cache --virtual . \
@@ -108,7 +108,7 @@ USER qlico
 
 CMD ["php-fpm"]
 
-FROM base as prod
+FROM base AS prod
 USER root
 
 RUN set -xe \
