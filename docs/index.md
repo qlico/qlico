@@ -9,7 +9,7 @@ stack.
 
 - **Easy Configuration**: Select only the parts/services you need.
 - **Customizable**: Use and extend your own configuration files effortlessly.
-- **User-Friendly**: Maintains the default `docker-compose` experience with
+- **User-Friendly**: Maintains the default `docker compose` experience with
   enhanced testing.
 - **Team Collaboration**: Standardize configurations across projects (
   e.g., `postgres16` for PostgreSQL 16, `mysql8` for MySQL 8).
