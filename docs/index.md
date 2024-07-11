@@ -12,7 +12,7 @@ stack.
 - **User-Friendly**: Maintains the default `docker-compose` experience with
   enhanced testing.
 - **Team Collaboration**: Standardize configurations across projects (
-  e.g., `postgres13` for PostgreSQL 13, `percona8` for Percona 8).
+  e.g., `postgres16` for PostgreSQL 16, `mysql8` for MySQL 8).
 
 ## Prerequisites
 
