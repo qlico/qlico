@@ -48,3 +48,7 @@ the `docs` folder.
 
 If you like using Qlico, please star
 the [Qlico GitHub project](https://github.com/qlico/qlico).
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=qlico/qlico&type=Date)](https://star-history.com/#qlico/qlico&Date)
