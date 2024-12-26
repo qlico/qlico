@@ -37,8 +37,8 @@ RUN apk add --no-cache --virtual .persistent-deps \
         exif-stable \
         gettext-stable \
         gmp-stable \
-        intl-stable \
-        opcache-stable \
+        intl \
+        opcache \
         pcntl-stable \
         pdo_mysql-stable \
         pdo_pgsql-stable \
