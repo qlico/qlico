@@ -91,7 +91,6 @@ RUN apk add --no-cache --virtual . \
     # Local mail handling
     msmtp \
     && install-php-extensions \
-        blackfire-stable \
         xdebug-stable
 
 # MSMTP config.
