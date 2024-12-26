@@ -32,25 +32,25 @@ RUN apk add --no-cache --virtual .persistent-deps \
     patch \
     && chmod +x /usr/local/bin/install-php-extensions \
     && install-php-extensions \
-            APCu-stable \
-            bcmath-stable \
-            exif-stable \
-            gettext-stable \
-            gmp-stable \
-            intl-stable \
-            opcache-stable \
-            pcntl-stable \
-            pdo_mysql-stable \
-            pdo_pgsql-stable \
-            redis-stable \
-            shmop-stable \
-            soap-stable \
-            sockets-stable \
-            sysvmsg-stable \
-            sysvsem-stable \
-            sysvshm-stable \
-            xsl-stable \
-            zip-stable \
+        APCu-stable \
+        bcmath-stable \
+        exif-stable \
+        gettext-stable \
+        gmp-stable \
+        intl-stable \
+        opcache-stable \
+        pcntl-stable \
+        pdo_mysql-stable \
+        pdo_pgsql-stable \
+        redis-stable \
+        shmop-stable \
+        soap-stable \
+        sockets-stable \
+        sysvmsg-stable \
+        sysvsem-stable \
+        sysvshm-stable \
+        xsl-stable \
+        zip-stable \
     && docker-php-source delete \
     && apk --no-cache -U upgrade \
     && rm -rf /tmp/* \
