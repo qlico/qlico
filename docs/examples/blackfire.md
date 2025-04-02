@@ -36,7 +36,7 @@ This is a large example, so you know where to place the Blackfire service.
 # Author: Qlico <hello@qlico.dev>
 services:
   traefik:
-    image: traefik:v3.0.1
+    image: traefik:v3.3.5
     container_name: qlico-core_traefik
     command: [ '--providers.docker', '--api.insecure' ]
     networks:

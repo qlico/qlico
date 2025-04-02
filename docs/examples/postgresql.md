@@ -51,7 +51,7 @@ volume.
 # Author: Qlico <hello@qlico.dev>
 services:
   traefik:
-    image: traefik:v3.0
+    image: traefik:v3.3.5
     container_name: qlico-core_traefik
     command: [ '--providers.docker', '--api.insecure' ]
     networks:
