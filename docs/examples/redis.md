@@ -24,7 +24,7 @@ file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
   redis7:
-    image: redis:7.2.5-alpine3.20
+    image: redis:7.4.2-alpine
     container_name: qlico-core_redis7
     ports:
       - 6379:6379
@@ -65,7 +65,7 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
   redis7:
-    image: redis:7.2.5-alpine3.20
+    image: redis:7.4.2-alpine
     container_name: qlico-core_redis7
     ports:
       - 6379:6379
