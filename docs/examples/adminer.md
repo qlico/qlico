@@ -20,7 +20,7 @@ file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
   adminer:
-    image: adminer:4.8.1-standalone
+    image: adminer:5.1.0-standalone
     container_name: qlico-core_adminer
     labels:
       - "traefik.http.routers.adminer.rule=Host(`adminer.qlico`)"
