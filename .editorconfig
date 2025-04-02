@@ -12,6 +12,10 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 2
 
+[*.{yaml,yml}]
+indent_style = space
+indent_size = 2
+
 [*.{md,txt}]
 indent_style = space
 indent_size = 4
