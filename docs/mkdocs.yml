@@ -70,5 +70,6 @@ nav:
       - PostgreSQL: examples/postgresql.md
       - RabbitMQ: examples/rabbitmq.md
       - Redis: examples/redis.md
+      - Valkey: examples/valkey.md
 
 copyright: Copyright &copy; 2017 - 2025 <a href="https://mastodon.social/@TomKeur">Tom Keur</a>
