@@ -18,7 +18,7 @@ file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
   mysql8:
-    image: mysql:8.0.37
+    image: mysql:8.0.41
     container_name: qlico-core_mysql8
     restart: unless-stopped
     logging:
@@ -65,7 +65,7 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
   mysql8:
-    image: mysql:8.0.37
+    image: mysql:8.0.41
     container_name: qlico-core_mysql8
     restart: unless-stopped
     logging:
