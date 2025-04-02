@@ -20,16 +20,16 @@ file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
   rabbitmq3:
-    image: rabbitmq:3.13.2-management-alpine
-    container_name: qlico-core_rabbitmq3
+    image: rabbitmq:4.0.7-management-alpine
+    container_name: qlico-core_rabbitmq4
     ports:
       - 5672:5672
       - 15672:15672
     volumes:
-      - rabbitmq3-data:/data/mnesia
+      - rabbitmq4-data:/data/mnesia
     labels:
-      - "traefik.http.routers.rabbitmq3.rule=Host(`rabbitmq3.qlico`)"
-      - "traefik.http.services.rabbitmq3.loadbalancer.server.port=15672"
+      - "traefik.http.routers.rabbitmq4.rule=Host(`rabbitmq4.qlico`)"
+      - "traefik.http.services.rabbitmq4.loadbalancer.server.port=15672"
     networks:
       - qlico-core
 ```
@@ -38,8 +38,8 @@ Add the following YAML to the `volumes` section of your `docker-compose.yaml`
 file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
-  rabbitmq3-data:
-    name: qlico-core_rabbitmq3-data
+  rabbitmq4-data:
+    name: qlico-core_rabbitmq4-data
 ```
 
 ## Example in a full docker-compose file
@@ -65,21 +65,21 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
   rabbitmq3:
-    image: rabbitmq:3.13.2-management-alpine
-    container_name: qlico-core_rabbitmq3
+    image: rabbitmq:4.0.7-management-alpine
+    container_name: qlico-core_rabbitmq4
     ports:
       - 5672:5672
       - 15672:15672
     volumes:
-      - rabbitmq3-data:/data/mnesia
+      - rabbitmq4-data:/data/mnesia
     labels:
-      - "traefik.http.routers.rabbitmq3.rule=Host(`rabbitmq3.qlico`)"
-      - "traefik.http.services.rabbitmq3.loadbalancer.server.port=15672"
+      - "traefik.http.routers.rabbitmq4.rule=Host(`rabbitmq4.qlico`)"
+      - "traefik.http.services.rabbitmq4.loadbalancer.server.port=15672"
     networks:
       - qlico-core
 volumes:
-  rabbitmq3-data:
-    name: qlico-core_rabbitmq3-data
+  rabbitmq4-data:
+    name: qlico-core_rabbitmq4-data
 networks:
   qlico-core:
     driver: bridge
