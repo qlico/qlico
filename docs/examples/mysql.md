@@ -18,7 +18,7 @@ file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
   mysql9:
-    image: mysql:9.2.0
+    image: mysql:9.3.0
     container_name: qlico-core_mysql9
     restart: unless-stopped
     logging:
@@ -65,7 +65,7 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
   mysql9:
-    image: mysql:9.2.0
+    image: mysql:9.3.0
     container_name: qlico-core_mysql9
     restart: unless-stopped
     logging:
@@ -95,7 +95,7 @@ file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
   mysql8:
-    image: mysql:8.0.41
+    image: mysql:8.0.42
     container_name: qlico-core_mysql8
     restart: unless-stopped
     logging:
@@ -142,7 +142,7 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
   mysql8:
-    image: mysql:8.0.41
+    image: mysql:8.0.42
     container_name: qlico-core_mysql8
     restart: unless-stopped
     logging:
