@@ -19,14 +19,7 @@ Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
-  adminer:
-    image: adminer:5.3.0-standalone
-    container_name: qlico-core_adminer
-    labels:
-      - "traefik.http.routers.adminer.rule=Host(`adminer.qlico`)"
-      - "traefik.http.services.adminer.loadbalancer.server.port=8080"
-    networks:
-      - qlico-core
+{% include "adminer.yaml" %}
 ```
 
 ## Example in a full docker-compose file
@@ -34,32 +27,8 @@ file.
 This is a large example, so you know where to place the Adminer service.
 
 ```yaml title="qlico-core/docker-compose.yaml"
----
-# Author: Qlico <hello@qlico.dev>
-services:
-  traefik:
-    image: traefik:v3.4.0
-    container_name: qlico-core_traefik
-    command: [ '--providers.docker', '--api.insecure' ]
-    networks:
-      - qlico-core
-    ports:
-      - 80:80
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    labels:
-      - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
-      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
-  adminer:
-    image: adminer:5.3.0-standalone
-    container_name: qlico-core_adminer
-    labels:
-      - "traefik.http.routers.adminer.rule=Host(`adminer.qlico`)"
-      - "traefik.http.services.adminer.loadbalancer.server.port=8080"
-    networks:
-      - qlico-core
-networks:
-  qlico-core:
-    driver: bridge
-    name: qlico-core
+{% include "compose-start.yaml" %}
+{% include "traefik.yaml" %}
+{% include "adminer.yaml" %}
+{% include "compose-end.yaml" %}
 ```

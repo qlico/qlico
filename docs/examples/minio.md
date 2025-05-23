@@ -17,20 +17,7 @@ Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
-  minio:
-    image: minio/minio:RELEASE.2025-04-22T22-12-26Z
-    container_name: qlico-core_minio
-    command: server /export
-    environment:
-      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-qlicorocks}
-      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-qlicorocks}
-    volumes:
-      - minio-data:/export
-    networks:
-      - qlico-core
-    labels:
-      - "traefik.http.routers.minio.rule=Host(`minio.qlico`)"
-      - "traefik.http.services.minio.loadbalancer.server.port=9000"
+{% include "minio.yaml" %}
 ```
 
 Add the following YAML to the `volumes` section of your `docker-compose.yaml`
@@ -48,42 +35,13 @@ This is a large example, so you know where to place the MinIO service and
 volume.
 
 ```yaml title="qlico-core/docker-compose.yaml"
----
-# Author: Qlico <hello@qlico.dev>
-services:
-  traefik:
-    image: traefik:v3.4.0
-    container_name: qlico-core_traefik
-    command: [ '--providers.docker', '--api.insecure' ]
-    networks:
-      - qlico-core
-    ports:
-      - 80:80
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    labels:
-      - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
-      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
-  minio:
-    image: minio/minio:RELEASE.2025-04-22T22-12-26Z
-    container_name: qlico-core_minio
-    command: server /export
-    environment:
-      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-qlicorocks}
-      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-qlicorocks}
-    volumes:
-      - minio-data:/export
-    networks:
-      - qlico-core
-    labels:
-      - "traefik.http.routers.minio.rule=Host(`minio.qlico`)"
-      - "traefik.http.services.minio.loadbalancer.server.port=9000"
+{% include "compose-start.yaml" %}
+{% include "traefik.yaml" %}
+{% include "minio.yaml" %}
+
 volumes:
   minio-data:
     name: qlico-core_minio-data
     driver: local
-networks:
-  qlico-core:
-    driver: bridge
-    name: qlico-core
+{% include "compose-end.yaml" %}
 ```

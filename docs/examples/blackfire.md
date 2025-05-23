@@ -18,13 +18,7 @@ Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
-  blackfire:
-    image: blackfire/blackfire:2
-    container_name: qlico-core_blackfire
-    env_file:
-      - .env
-    networks:
-      - qlico-core
+{% include "blackfire.yaml" %}
 ```
 
 ## Example in a full docker-compose file
@@ -32,31 +26,8 @@ file.
 This is a large example, so you know where to place the Blackfire service.
 
 ```yaml title="qlico-core/docker-compose.yaml"
----
-# Author: Qlico <hello@qlico.dev>
-services:
-  traefik:
-    image: traefik:v3.4.0
-    container_name: qlico-core_traefik
-    command: [ '--providers.docker', '--api.insecure' ]
-    networks:
-      - qlico-core
-    ports:
-      - 80:80
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    labels:
-      - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
-      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
-  blackfire:
-    image: blackfire/blackfire:2
-    container_name: qlico-core_blackfire
-    env_file:
-      - .env
-    networks:
-      - qlico-core
-networks:
-  qlico-core:
-    driver: bridge
-    name: qlico-core
+{% include "compose-start.yaml" %}
+{% include "traefik.yaml" %}
+{% include "blackfire.yaml" %}
+{% include "compose-end.yaml" %}
 ```

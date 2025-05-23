@@ -51,10 +51,10 @@ nav:
       - Quick start: quick-start.md
       - dnsmasq: dnsmasq.md
   - Usage:
-    - Qlico architecture: usage/qlico-architecture.md
-    - Qlico CLI: usage/qlico-cli.md
-    - Debugging with Xdebug: usage/xdebug.md
-    - Enabling TLS/SSL: usage/TLS-SSL.md
+      - Qlico architecture: usage/qlico-architecture.md
+      - Qlico CLI: usage/qlico-cli.md
+      - Debugging with Xdebug: usage/xdebug.md
+      - Enabling TLS/SSL: usage/TLS-SSL.md
   - Examples:
       - Adminer: examples/adminer.md
       - Blackfire: examples/blackfire.md
@@ -68,5 +68,24 @@ nav:
       - RabbitMQ: examples/rabbitmq.md
       - Redis: examples/redis.md
       - Valkey: examples/valkey.md
+
+extra:
+  container_images:
+    adminer: adminer:5.3.0-standalone
+    blackfire: blackfire/blackfire:2
+    elasticsearch: docker.elastic.co/elasticsearch/elasticsearch:9.0.0
+    kibana: docker.elastic.co/kibana/kibana:9.0.0
+    mailpit: axllent/mailpit:v1.25.0
+    minio: minio/minio:RELEASE.2025-04-22T22-12-26Z
+    mysql8: mysql:8.0.42
+    mysql9: mysql:9.3.0
+    percona8: percona:8.0.42-33-centos
+    pgadmin4: dpage/pgadmin4:latest
+    postgres17: postgres:17
+    rabbitmq: rabbitmq:4.1.0-management-alpine
+    redis: redis:7.4.2-alpine
+    traefik: traefik:v3.4.0
+    valkey: valkey/valkey:8.1.1
+    nginx_unprivileged: nginxinc/nginx-unprivileged:1.27-alpine3.21
 
 copyright: Copyright &copy; 2017 - 2025 <a href="https://mastodon.social/@TomKeur">Tom Keur</a>

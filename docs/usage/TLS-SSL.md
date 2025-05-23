@@ -43,7 +43,7 @@ Change the `command`, `ports`, `volumes` and `labels`.
 # Author: Qlico <hello@qlico.dev>
 services:
   traefik:
-    image: traefik:v3.4.0
+    image: {{ container_images.traefik }}
     container_name: qlico-core_traefik
     command:
       - --providers.docker
@@ -87,7 +87,7 @@ PROJECT_HOST=example.s.qlico
 ---
 services:
   nginx:
-    image: nginxinc/nginx-unprivileged:1.27.0-alpine3.19
+    image: image: {{ container_images.nginx_unprivileged }}
     container_name: ${PROJECT_NAME}_nginx
     volumes:
       - ./services/nginx/nginx.conf:/etc/nginx/nginx.conf

@@ -23,15 +23,7 @@ Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
-  redis7:
-    image: redis:7.4.2-alpine
-    container_name: qlico-core_redis7
-    ports:
-      - 6379:6379
-    volumes:
-      - redis7-data:/data
-    networks:
-      - qlico-core
+{% include "redis.yaml" %}
 ```
 
 Add the following YAML to the `volumes` section of your `docker-compose.yaml`
@@ -48,36 +40,12 @@ This is a large example, so you know where to place the Redis service and
 volume.
 
 ```yaml title="qlico-core/docker-compose.yaml"
----
-# Author: Qlico <hello@qlico.dev>
-services:
-  traefik:
-    image: traefik:v3.4.0
-    container_name: qlico-core_traefik
-    command: [ '--providers.docker', '--api.insecure' ]
-    networks:
-      - qlico-core
-    ports:
-      - 80:80
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    labels:
-      - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
-      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
-  redis7:
-    image: redis:7.4.2-alpine
-    container_name: qlico-core_redis7
-    ports:
-      - 6379:6379
-    volumes:
-      - redis7-data:/data
-    networks:
-      - qlico-core
+{% include "compose-start.yaml" %}
+{% include "traefik.yaml" %}
+{% include "redis.yaml" %}
+
 volumes:
   redis7-data:
     name: qlico-core_redis7-data
-networks:
-  qlico-core:
-    driver: bridge
-    name: qlico-core
+{% include "compose-end.yaml" %}
 ```

@@ -18,15 +18,7 @@ Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
-  valkey:
-    image: valkey/valkey:8.1.1
-    container_name: qlico-core_valkey
-    ports:
-      - 6379:6379
-    volumes:
-      - valkey-data:/data
-    networks:
-      - qlico-core
+{% include "valkey.yaml" %}
 ```
 
 Add the following YAML to the `volumes` section of your `docker-compose.yaml`
@@ -43,36 +35,12 @@ This is a large example, so you know where to place the Valkey service and
 volume.
 
 ```yaml title="qlico-core/docker-compose.yaml"
----
-# Author: Qlico <hello@qlico.dev>
-services:
-  traefik:
-    image: traefik:v3.4.0
-    container_name: qlico-core_traefik
-    command: [ '--providers.docker', '--api.insecure' ]
-    networks:
-      - qlico-core
-    ports:
-      - 80:80
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    labels:
-      - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
-      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
-  valkey:
-    image: valkey/valkey:8.1.1
-    container_name: qlico-core_valkey
-    ports:
-      - 6379:6379
-    volumes:
-      - valkey-data:/data
-    networks:
-      - qlico-core
+{% include "compose-start.yaml" %}
+{% include "traefik.yaml" %}
+{% include "valkey.yaml" %}
+
 volumes:
   valkey-data:
     name: qlico-core_valkey-data
-networks:
-  qlico-core:
-    driver: bridge
-    name: qlico-core
+{% include "compose-end.yaml" %}
 ```

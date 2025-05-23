@@ -27,75 +27,24 @@ You are free to add more services to `qlico-core` if you want to.
 In example image we're running:
 
 * Traefik
-* Redis
+* Valkey
 * Postgres
 * RabbitMQ
 
-Since more than one project is using for example Redis, Postgresql and RabbitMQ,
+Since more than one project is using for example Valkey, Postgresql and RabbitMQ,
 we want to run these services in `qlico-core`.
 
 ```yaml title="qlico-core/docker-compose.yaml"
----
-# Author: Qlico <hello@qlico.dev>
-services:
-  traefik:
-    image: traefik:v3.4.0
-    container_name: qlico-core_traefik
-    command: ['--providers.docker', '--api.insecure']
-    networks:
-      - qlico-core
-    ports:
-      - 80:80
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    labels:
-      - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
-      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
-
-  redis7:
-    image: redis:7.2.5-alpine3.20
-    container_name: qlico-core_redis7
-    ports:
-      - 6379:6379
-    volumes:
-      - redis7-data:/data
-    networks:
-      - qlico-core
-
-  postgres16:
-    image: postgres:16-alpine
-    container_name: qlico-core_postgres14
-    logging:
-      driver: none
-    ports:
-      - 5432:5432
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER:-postgres}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-qlico}
-    volumes:
-      - postgres16-data:/var/lib/postgresql/data
-    networks:
-      - qlico-core
-
-  rabbitmq3:
-    image: rabbitmq:3.13.2-management-alpine
-    container_name: qlico-core_rabbitmq3
-    ports:
-      - 5672:5672
-      - 15672:15672
-    volumes:
-      - rabbitmq3-data:/data/mnesia
-    labels:
-      - "traefik.http.routers.rabbitmq3.rule=Host(`rabbitmq3.qlico`)"
-      - "traefik.http.services.rabbitmq3.loadbalancer.server.port=15672"
-    networks:
-      - qlico-core
+{% include "compose-start.yaml" %}
+{% include "valkey.yaml" %}
+{% include "postgres17.yaml" %}
+{% include "rabbitmq.yaml" %}
 
 volumes:
-  redis7-data:
-    name: qlico-core_redis7-data
-  postgres16-data:
-    name: qlico-core_postgres16-data
+  valkey-data:
+    name: qlico-core_valkey-data
+  postgres17-data:
+    name: qlico-core_postgres17-data
 
 networks:
   qlico-core:
@@ -106,17 +55,17 @@ networks:
 From our host machine where Docker is running we can connect to:
 
 * Traefik: `http://localhost:80`
-* Redis: `localhost:6379`
+* Valkey: `localhost:6379`
 * Postgresql: `localhost:5432`
-* RabbitMQ: `localhost:5672` or the web interface: `http://rabbitmq3.qlico`
+* RabbitMQ: `localhost:5672` or the web interface: `http://rabbitmq4.qlico`
 
 From the projects running (in Docker) we can access everything by the `service`
 name:
 
 * Traefik (is not needed, since it's a reverse proxy)
-* Redis: `redis7:6379`
-* Postgresql: `postgres16:5432`
-* RabbitMQ: `rabbitmq3:5672` (the webinterface is not needed for applications)
+* Valkey: `valkey:6379`
+* Postgresql: `postgres17:5432`
+* RabbitMQ: `rabbitmq4:5672` (the webinterface is not needed for applications)
 
 
 ## A Symfony project
@@ -124,10 +73,9 @@ name:
 ```yaml title="a-symfony-project/qlico/docker-compose.yaml"
 ---
 # Author: Qlico <hello@qlico.dev>
----
 services:
   nginx:
-    image: nginxinc/nginx-unprivileged:1.25.5-alpine3.19
+    image: {{ container_images.nginx_unprivileged }}
     container_name: ${PROJECT_NAME}_nginx
     volumes:
       - ./services/nginx/nginx.conf:/etc/nginx/nginx.conf
@@ -186,8 +134,8 @@ To connect to services running in `qlico-core` we're using:
 These are inside the projects `.env` file:
 
 ```shell title="a-symfony-project/.env"
-DATABASE_URL="postgresql://postgres:qlico@postgres16:5432/a-symfony-project?serverVersion=16&charset=utf8"
-REDIS_DSN="redis://redis7:6379"
+DATABASE_URL="postgresql://postgres:qlico@postgres17:5432/a-symfony-project?serverVersion=17&charset=utf8"
+REDIS_DSN="redis://valkey:6379"
 ```
 
 If we want to access the Symfony project in a
@@ -263,8 +211,8 @@ To connect to services running in `qlico-core` we're using:
 These are inside the projects `.env` file:
 
 ```shell title="a-laravel-project/.env"
-DATABASE_URL="pgsql://postgres:qlico@postgres16:5432/a-laravel-project?charset=utf8"
-RABBITMQ_DSN="redis://redis7:6379"
+DATABASE_URL="pgsql://postgres:qlico@postgres17:5432/a-laravel-project?charset=utf8"
+RABBITMQ_DSN="redis://valkey:6379"
 QUEUE_CONNECTION="rabbitmq"
 RABBITMQ_HOST="rabbitmq3"
 RABBITMQ_PASSWORD="guest"
@@ -280,7 +228,7 @@ Debugging with Xdebug? The project name is `a-laravel-project`.
 ## The difference between the Symfony and Laravel project
 
 It's a small difference, but Laravel is using RabbitMQ for the queue connection
-and Symfony is using Redis for the cache connection. Both are using Postgresql
+and Symfony is using Valkey for the cache connection. Both are using Postgresql
 for the database connection.
 
 But the `qlico/docker-compose.yaml` files are identical.
@@ -335,11 +283,11 @@ These are inside the projects `.env` file:
 
 
 ```shell title="a-go-microservice/.env"
-REDIS_DSN=redis://redis7:6379
-RABBITMQ_DSN=amqp://guest:guest@rabbitmq3:5672/my-distributed-queue
+REDIS_DSN=redis://valkey:6379
+RABBITMQ_DSN=amqp://guest:guest@rabbitmq4:5672/my-distributed-queue
 ```
 
-The Go microservice is using Redis for the cache connection and RabbitMQ for the
+The Go microservice is using Valkey for the cache connection and RabbitMQ for the
 queue connection. But it could also be using Postgresql for the database, if needed.
 
 If we want to access the Go microservice project in a

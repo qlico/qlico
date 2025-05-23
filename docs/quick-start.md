@@ -16,8 +16,8 @@ cp dist/docker-compose.yaml docker-compose.yaml
 
 By default, Qlico only comes with a reverse proxy
 [Traefik](https://traefik.io/traefik/){:target="_blank"},
-if you would like more services use the Examples, for example Redis see
-the [Examples/Redis](examples/redis.md).
+if you would like more services use the Examples, for example Valkey see
+the [Examples/Valkey](examples/valkey.md).
 If you're missing a service, feel free to contribute!
 
 After customizing to your needs, you can do a `docker compose up` inside
@@ -98,8 +98,8 @@ extension if not working, please do not open an issue in this repository.
 
 ## How do I connect to services running in `qlico-core`?
 
-In this example we will use `postgres16` as an example service, based on
-[postgresql 16 example](examples/postgresql.md).
+In this example we will use `postgres17` as an example service, based on
+[postgresql 17 example](examples/postgresql.md).
 
 ### From your host machine
 
@@ -108,8 +108,8 @@ file, you can open the port by adding the following line to the service:
 
 ```yaml title="qlico-core/docker-compose.yaml"
 services:
-  postgres16:
-    image: postgres:16-alpine
+  postgres17:
+    image: postgres:17-alpine
     ports:
       - 5432:5432
 ```
@@ -119,13 +119,13 @@ So in this example would connect to: `localhost:5432` to access the service.
 ### From a container
 
 You can connect to services running in `qlico-core` by using the service name,
-for example, if you have a service called `postgres16` you can connect to it by
-using `postgres16` as the hostname.
+for example, if you have a service called `postgres17` you can connect to it by
+using `postgres17` as the hostname.
 
 ```yaml title="qlico-core/docker-compose.yaml"
 services:
-  postgres16:
-    image: postgres:16-alpine
+  postgres17:
+    image: postgres:17-alpine
 ```
 
 ## dnsmasq

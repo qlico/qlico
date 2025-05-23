@@ -20,25 +20,7 @@ Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
-  mailpit:
-    image: axllent/mailpit:v1.25.0
-    container_name: qlico-core_mailpit
-    restart: always
-    volumes:
-      - mailpit-data:/data
-    ports:
-      - 8025:8025
-      - 1025:1025
-    environment:
-      MP_MAX_MESSAGES: 5000
-      MP_DATA_FILE: /data/mailpit.db
-      MP_SMTP_AUTH_ACCEPT_ANY: 1
-      MP_SMTP_AUTH_ALLOW_INSECURE: 1
-    labels:
-      - "traefik.http.routers.mailpit.rule=Host(`mailpit.qlico`)"
-      - "traefik.http.services.mailpit.loadbalancer.server.port=8025"
-    networks:
-      - qlico-core
+{% include "mailpit.yaml" %}
 ```
 
 ## Example in a full docker-compose file
@@ -46,46 +28,12 @@ file.
 This is a large example, so you know where to place the Mailpit service.
 
 ```yaml title="qlico-core/docker-compose.yaml"
----
-# Author: Qlico <hello@qlico.dev>
-services:
-  traefik:
-    image: traefik:v3.4.0
-    container_name: qlico-core_traefik
-    command: [ '--providers.docker', '--api.insecure' ]
-    networks:
-      - qlico-core
-    ports:
-      - 80:80
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    labels:
-      - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
-      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
-  mailpit:
-    image: axllent/mailpit:v1.25.0
-    container_name: qlico-core_mailpit
-    restart: always
-    volumes:
-      - mailpit-data:/data
-    ports:
-      - 8025:8025
-      - 1025:1025
-    environment:
-      MP_MAX_MESSAGES: 5000
-      MP_DATA_FILE: /data/mailpit.db
-      MP_SMTP_AUTH_ACCEPT_ANY: 1
-      MP_SMTP_AUTH_ALLOW_INSECURE: 1
-    labels:
-      - "traefik.http.routers.mailpit.rule=Host(`mailpit.qlico`)"
-      - "traefik.http.services.mailpit.loadbalancer.server.port=8025"
-    networks:
-      - qlico-core
+{% include "compose-start.yaml" %}
+{% include "traefik.yaml" %}
+{% include "mailpit.yaml" %}
+
 volumes:
   mailpit-data:
     name: qlico-core_mailpit-data
-networks:
-  qlico-core:
-    driver: bridge
-    name: qlico-core
+{% include "compose-end.yaml" %}
 ```

@@ -17,20 +17,7 @@ Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
-  mysql9:
-    image: mysql:9.3.0
-    container_name: qlico-core_mysql9
-    restart: unless-stopped
-    logging:
-      driver: none
-    ports:
-      - 3309:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-qlico}
-    volumes:
-      - mysql-data9:/var/lib/mysql
-    networks:
-      - qlico-core
+{% include "mysql9.yaml" %}
 ```
 
 Add the following YAML to the `volumes` section of your `docker-compose.yaml`
@@ -48,44 +35,15 @@ This is a large example, so you know where to place the MySQL service and
 volume.
 
 ```yaml title="qlico-core/docker-compose.yaml"
----
-# Author: Qlico <hello@qlico.dev>
-services:
-  traefik:
-    image: traefik:v3.4.0
-    container_name: qlico-core_traefik
-    command: [ '--providers.docker', '--api.insecure' ]
-    networks:
-      - qlico-core
-    ports:
-      - 80:80
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    labels:
-      - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
-      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
-  mysql9:
-    image: mysql:9.3.0
-    container_name: qlico-core_mysql9
-    restart: unless-stopped
-    logging:
-      driver: none
-    ports:
-      - 3309:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-qlico}
-    volumes:
-      - mysql-data9:/var/lib/mysql
-    networks:
-      - qlico-core
+{% include "compose-start.yaml" %}
+{% include "traefik.yaml" %}
+{% include "mysql9.yaml" %}
+
 volumes:
   mysql-data9:
     name: qlico-core_mysql9-data
     driver: local
-networks:
-  qlico-core:
-    driver: bridge
-    name: qlico-core
+{% include "compose-end.yaml" %}
 ```
 
 ## How to add MySQL 8 to Qlico?
@@ -94,20 +52,7 @@ Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
-  mysql8:
-    image: mysql:8.0.42
-    container_name: qlico-core_mysql8
-    restart: unless-stopped
-    logging:
-      driver: none
-    ports:
-      - 3308:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-qlico}
-    volumes:
-      - mysql-data8:/var/lib/mysql
-    networks:
-      - qlico-core
+{% include "mysql8.yaml" %}
 ```
 
 Add the following YAML to the `volumes` section of your `docker-compose.yaml`
@@ -125,42 +70,12 @@ This is a large example, so you know where to place the MySQL service and
 volume.
 
 ```yaml title="qlico-core/docker-compose.yaml"
----
-# Author: Qlico <hello@qlico.dev>
-services:
-  traefik:
-    image: traefik:v3.4.0
-    container_name: qlico-core_traefik
-    command: [ '--providers.docker', '--api.insecure' ]
-    networks:
-      - qlico-core
-    ports:
-      - 80:80
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    labels:
-      - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
-      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
-  mysql8:
-    image: mysql:8.0.42
-    container_name: qlico-core_mysql8
-    restart: unless-stopped
-    logging:
-      driver: none
-    ports:
-      - 3308:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-qlico}
-    volumes:
-      - mysql-data8:/var/lib/mysql
-    networks:
-      - qlico-core
+{% include "compose-start.yaml" %}
+{% include "traefik.yaml" %}
+{% include "mysql8.yaml" %}
+
 volumes:
   mysql-data8:
     name: qlico-core_mysql8-data
-networks:
-  qlico-core:
-    driver: bridge
-    name: qlico-core
+{% include "compose-end.yaml" %}
 ```
-

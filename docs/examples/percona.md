@@ -22,20 +22,7 @@ Add the following YAML to the `services` section of your `docker-compose.yaml`
 file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
-  percona8:
-    image: percona:8.0.42-33-centos
-    container_name: qlico-core_percona8
-    logging:
-      driver: none
-    ports:
-      - 3308:3306
-    environment:
-      MYSQL_USER: ${MYSQL_USERNAME:-root}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-qlico}
-    volumes:
-      - percona8-data:/var/lib/mysql
-    networks:
-      - qlico-core
+{% include "percona8.yaml" %}
 ```
 
 Add the following YAML to the `volumes` section of your `docker-compose.yaml`
@@ -53,42 +40,13 @@ This is a large example, so you know where to place the Percona service(s) and
 volume(s).
 
 ```yaml title="qlico-core/docker-compose.yaml"
----
-# Author: Qlico <hello@qlico.dev>
-services:
-  traefik:
-    image: traefik:v3.4.0
-    container_name: qlico-core_traefik
-    command: [ '--providers.docker', '--api.insecure' ]
-    networks:
-      - qlico-core
-    ports:
-      - 80:80
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    labels:
-      - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
-      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
-  percona8:
-    image: percona:8.0.36-28-centos
-    container_name: qlico-core_percona8
-    logging:
-      driver: none
-    ports:
-      - 3308:3306
-    environment:
-      MYSQL_USER: ${MYSQL_USERNAME:-root}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-qlico}
-    volumes:
-      - percona8-data:/var/lib/mysql
-    networks:
-      - qlico-core
+{% include "compose-start.yaml" %}
+{% include "traefik.yaml" %}
+{% include "percona8.yaml" %}
+
 volumes:
   percona8-data:
     name: qlico-core_percona8-data
     driver: local
-networks:
-  qlico-core:
-    driver: bridge
-    name: qlico-core
+{% include "compose-end.yaml" %}
 ```
