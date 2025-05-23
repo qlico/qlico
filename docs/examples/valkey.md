@@ -19,7 +19,7 @@ file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
   valkey:
-    image: valkey/valkey:8.1.0
+    image: valkey/valkey:8.1.1
     container_name: qlico-core_valkey
     ports:
       - 6379:6379
@@ -60,7 +60,7 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
   valkey:
-    image: valkey/valkey:8.1.0
+    image: valkey/valkey:8.1.1
     container_name: qlico-core_valkey
     ports:
       - 6379:6379
