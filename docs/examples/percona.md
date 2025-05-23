@@ -23,7 +23,7 @@ file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
   percona8:
-    image: percona:8.0.36-28-centos
+    image: percona:8.0.42-33-centos
     container_name: qlico-core_percona8
     logging:
       driver: none
