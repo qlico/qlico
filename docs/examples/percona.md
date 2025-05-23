@@ -16,40 +16,6 @@ scalability and instrumentation.
 
 ## How to add Percona to Qlico?
 
-Is it possible to use Percona 5 or 8, it's even possible to run both at the same
-time.
-
-## How to add Percona 5 to Qlico?
-
-Add the following YAML to the `services` section of your `docker-compose.yaml`
-file.
-
-```yaml title="qlico-core/docker-compose.yaml"
-  percona5:
-    image: percona:5.7.44-centos
-    container_name: qlico-core_percona5
-    logging:
-      driver: none
-    ports:
-      - 3305:3306
-    environment:
-      MYSQL_USER: ${MYSQL_USERNAME:-root}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-qlico}
-    volumes:
-      - percona5-data:/var/lib/mysql
-    networks:
-      - qlico-core
-```
-
-Add the following YAML to the `volumes` section of your `docker-compose.yaml`
-file.
-
-```yaml title="qlico-core/docker-compose.yaml"
-  percona5-data:
-    name: qlico-core_percona5-data
-    driver: local
-```
-
 ## How to add Percona 8 to Qlico?
 
 Add the following YAML to the `services` section of your `docker-compose.yaml`
@@ -103,20 +69,6 @@ services:
     labels:
       - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
-  percona5:
-    image: percona:5.7.44-centos
-    container_name: qlico-core_percona5
-    logging:
-      driver: none
-    ports:
-      - 3305:3306
-    environment:
-      MYSQL_USER: ${MYSQL_USERNAME:-root}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-qlico}
-    volumes:
-      - percona5-data:/var/lib/mysql
-    networks:
-      - qlico-core
   percona8:
     image: percona:8.0.36-28-centos
     container_name: qlico-core_percona8
@@ -132,9 +84,6 @@ services:
     networks:
       - qlico-core
 volumes:
-  percona5-data:
-    name: qlico-core_percona5-data
-    driver: local
   percona8-data:
     name: qlico-core_percona8-data
     driver: local
