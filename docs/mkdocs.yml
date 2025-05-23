@@ -32,8 +32,10 @@ repo_url: https://github.com/qlico/qlico/
 site_url: https://docs.qlico.dev
 edit_uri: edit/main/docs/
 plugins:
-  - search
+  - macros:
+      include_dir: snippets
   - same-dir
+  - search
 
 markdown_extensions:
   - attr_list
