@@ -33,7 +33,7 @@ site_url: https://docs.qlico.dev
 edit_uri: edit/main/docs/
 plugins:
   - macros:
-      include_dir: snippets
+      include_dir: docs/snippets
   - same-dir
   - search
 
