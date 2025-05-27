@@ -1,0 +1,9 @@
+  valkey:
+    image: valkey/valkey:8.1.1
+    container_name: qlico-core_valkey
+    ports:
+      - 6379:6379
+    volumes:
+      - valkey-data:/data
+    networks:
+      - qlico-core
