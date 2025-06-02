@@ -1,0 +1,19 @@
+  mailpit:
+    image: {{ container_images.mailpit }}
+    container_name: qlico-core_mailpit
+    restart: always
+    volumes:
+      - mailpit-data:/data
+    ports:
+      - 8025:8025
+      - 1025:1025
+    environment:
+      MP_MAX_MESSAGES: 5000
+      MP_DATA_FILE: /data/mailpit.db
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+    labels:
+      - "traefik.http.routers.mailpit.rule=Host(`mailpit.qlico`)"
+      - "traefik.http.services.mailpit.loadbalancer.server.port=8025"
+    networks:
+      - qlico-core
