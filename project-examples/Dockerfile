@@ -111,8 +111,6 @@ FROM base AS prod
 USER root
 
 RUN set -xe \
-    # chmod +x /usr/local/bin/install-php-extensions \
-    # && install-php-extensions ddtrace \
     # Remove packages we don't want in production
     && curl -LO https://github.com/DataDog/dd-trace-php/releases/latest/download/datadog-setup.php \
     && php datadog-setup.php --php-bin=all --enable-profiling \
