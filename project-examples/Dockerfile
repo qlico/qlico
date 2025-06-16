@@ -33,23 +33,23 @@ RUN apk add --no-cache --virtual .persistent-deps \
     && chmod +x /usr/local/bin/install-php-extensions \
     && install-php-extensions \
         APCu-stable \
-        bcmath-stable \
-        exif-stable \
-        gettext-stable \
-        gmp-stable \
+        bcmath \
+        exif \
+        gettext \
+        gmp \
         intl \
         opcache \
-        pcntl-stable \
-        pdo_mysql-stable \
-        pdo_pgsql-stable \
+        pcntl \
+        pdo_mysql \
+        pdo_pgsql \
         redis-stable \
-        shmop-stable \
-        soap-stable \
-        sockets-stable \
-        sysvmsg-stable \
-        sysvsem-stable \
-        sysvshm-stable \
-        xsl-stable \
+        shmop \
+        soap \
+        sockets \
+        sysvmsg \
+        sysvsem \
+        sysvshm \
+        xsl \
         zip-stable \
     && docker-php-source delete \
     && apk --no-cache -U upgrade \
