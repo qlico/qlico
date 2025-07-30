@@ -1,0 +1,14 @@
+  mysql9:
+    image: {{ container_images.mysql9 }}
+    container_name: qlico-core_mysql9
+    restart: unless-stopped
+    logging:
+      driver: none
+    ports:
+      - 3309:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-qlico}
+    volumes:
+      - mysql-data9:/var/lib/mysql
+    networks:
+      - qlico-core
