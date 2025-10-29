@@ -30,8 +30,8 @@ Add the following YAML to the `volumes` section of your `docker-compose.yaml`
 file.
 
 ```yaml title="qlico-core/docker-compose.yaml"
-  redis7-data:
-    name: qlico-core_redis7-data
+  redis-data:
+    name: qlico-core_redis-data
 ```
 
 ## Example in a full docker-compose file
@@ -45,7 +45,7 @@ volume.
 {% include "redis.yaml" %}
 
 volumes:
-  redis7-data:
-    name: qlico-core_redis7-data
+  redis-data:
+    name: qlico-core_redis-data
 {% include "compose-end.yaml" %}
 ```

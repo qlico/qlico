@@ -1,9 +1,9 @@
-  redis7:
+  redis:
     image: {{ container_images.redis }}
-    container_name: qlico-core_redis7
+    container_name: qlico-core_redis
     ports:
       - 6379:6379
     volumes:
-      - redis7-data:/data
+      - redis-data:/data
     networks:
       - qlico-core
