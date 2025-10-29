@@ -71,21 +71,21 @@ nav:
 
 extra:
   container_images:
-    adminer: adminer:5.3.0-standalone
+    adminer: adminer:5.4.1-standalone
     blackfire: blackfire/blackfire:2
-    elasticsearch: docker.elastic.co/elasticsearch/elasticsearch:9.0.2
-    kibana: docker.elastic.co/kibana/kibana:9.0.2
-    mailpit: axllent/mailpit:v1.26.0
+    elasticsearch: docker.elastic.co/elasticsearch/elasticsearch:9.2.0
+    kibana: docker.elastic.co/kibana/kibana:9.2.0
+    mailpit: axllent/mailpit:v1.27
     minio: minio/minio:RELEASE.2025-04-22T22-12-26Z
-    mysql8: mysql:8.0.42
-    mysql9: mysql:9.3.0
-    percona8: percona:8.0.42-33-centos
+    mysql8: mysql:8.0.44
+    mysql9: mysql:9.5.0
+    percona8: percona:8.0.43-34-centos
     pgadmin4: dpage/pgadmin4:latest
-    postgres17: postgres:17
-    rabbitmq: rabbitmq:4.1.1-management-alpine
-    redis: redis:8.0.2-alpine
-    traefik: traefik:v3.4.1
-    valkey: valkey/valkey:8.1.1-alpine
+    postgres18: postgres:18
+    rabbitmq: rabbitmq:4.2.0-management-alpine
+    redis: redis:8.2.2-alpine
+    traefik: traefik:v3.5.4
+    valkey: valkey/valkey:9.0.0-alpine
     nginx_unprivileged: nginxinc/nginx-unprivileged:1.27-alpine3.21
 
 copyright: Copyright &copy; 2017 - 2025 <a href="https://mastodon.social/@TomKeur">Tom Keur</a>
