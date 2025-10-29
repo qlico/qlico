@@ -1,5 +1,5 @@
   valkey:
-    image: valkey/valkey:8.1.1
+    image:  {{ container_images.valkey }}
     container_name: qlico-core_valkey
     ports:
       - 6379:6379
