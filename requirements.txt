@@ -32,7 +32,7 @@ regex==2025.9.18
 requests==2.32.5
 six==1.17.0
 super_collections==0.6.2
-termcolor==3.1.0
+termcolor==3.2.0
 urllib3==2.5.0
 watchdog==6.0.0
 zipp==3.23.0
