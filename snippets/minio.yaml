@@ -1,0 +1,14 @@
+  minio:
+    image: {{ container_images.minio }}
+    container_name: qlico-core_minio
+    command: server /export
+    environment:
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-qlicorocks}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-qlicorocks}
+    volumes:
+      - minio-data:/export
+    networks:
+      - qlico-core
+    labels:
+      - "traefik.http.routers.minio.rule=Host(`minio.qlico`)"
+      - "traefik.http.services.minio.loadbalancer.server.port=9000"
