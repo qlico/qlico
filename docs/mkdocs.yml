@@ -88,4 +88,4 @@ extra:
     valkey: valkey/valkey:9.0.0-alpine
     nginx_unprivileged: nginxinc/nginx-unprivileged:1.29-alpine3.22
 
-copyright: Copyright &copy; 2017 - 2025 <a href="https://mastodon.social/@TomKeur">Tom Keur</a>
+copyright: Copyright &copy; 2017 - 2026 <a href="https://mastodon.social/@TomKeur">Tom Keur</a>
