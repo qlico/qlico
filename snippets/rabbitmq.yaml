@@ -1,0 +1,13 @@
+  rabbitmq4:
+    image: {{ container_images.rabbitmq }}
+    container_name: qlico-core_rabbitmq4
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - rabbitmq4-data:/data/mnesia
+    labels:
+      - "traefik.http.routers.rabbitmq4.rule=Host(`rabbitmq4.qlico`)"
+      - "traefik.http.services.rabbitmq4.loadbalancer.server.port=15672"
+    networks:
+      - qlico-core
