@@ -1,0 +1,14 @@
+  postgres18:
+    image: {{ container_images.postgres18 }}
+    container_name: qlico-core_postgres18
+    logging:
+      driver: none
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-qlico}
+    volumes:
+      - postgres18-data:/var/lib/postgresql/data
+    networks:
+      - qlico-core
