@@ -21,7 +21,7 @@ mkdocs-same-dir==0.1.4
 packaging==26.0
 paginate==0.5.7
 pathspec==1.0.4
-platformdirs==4.9.4
+platformdirs==4.9.6
 Pygments==2.20.0
 pymdown-extensions==10.21.2
 pyparsing==3.3.2
