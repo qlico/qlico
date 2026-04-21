@@ -70,20 +70,21 @@ nav:
 
 extra:
   container_images:
-    adminer: adminer:5.4.1-standalone
+    adminer: adminer:5.4.2-standalone
     blackfire: blackfire/blackfire:2
-    elasticsearch: docker.elastic.co/elasticsearch/elasticsearch:9.2.2
-    kibana: docker.elastic.co/kibana/kibana:9.2.2
-    mailpit: axllent/mailpit:v1.28
-    mysql8: mysql:8.0.44
-    mysql9: mysql:9.5.0
-    percona8: percona:8.0.43-34-centos
+    elasticsearch: docker.elastic.co/elasticsearch/elasticsearch:9.3.3
+    kibana: docker.elastic.co/kibana/kibana:9.3.3
+    mailpit: axllent/mailpit:v1.29
+    mysql8: mysql:8.4.9
+    mysql9: mysql:9.6.0
+    percona8: percona:8.0.45-36-centos
     pgadmin4: dpage/pgadmin4:latest
     postgres18: postgres:18
-    rabbitmq: rabbitmq:4.2.1-management-alpine
-    redis: redis:8.4.0-alpine
-    traefik: traefik:v3.6.4
-    valkey: valkey/valkey:9.0.0-alpine
-    nginx_unprivileged: nginxinc/nginx-unprivileged:1.29-alpine3.22
+    rabbitmq: rabbitmq:4.2.5-management-alpine
+    redis: redis:8.6.2-alpine
+    traefik: traefik:v3.6.13
+    valkey: valkey/valkey:9.0.3-alpine
+    nginx_unprivileged: nginxinc/nginx-unprivileged:1.29-alpine3.23
 
-copyright: Copyright &copy; 2017 - 2026 <a href="https://mastodon.social/@TomKeur">Tom Keur</a>
+copyright: Copyright &copy; 2017 - 2026 <a
+  href="https://mastodon.social/@TomKeur">Tom Keur</a>
