@@ -60,7 +60,6 @@ nav:
       - Blackfire: examples/blackfire.md
       - Elasticsearch and Kibana: examples/elasticsearch-kibana.md
       - Mailpit: examples/mailpit.md
-      - Minio: examples/minio.md
       - MySQL: examples/mysql.md
       - Percona: examples/percona.md
       - pgAdmin: examples/pgadmin.md
@@ -76,7 +75,6 @@ extra:
     elasticsearch: docker.elastic.co/elasticsearch/elasticsearch:9.2.2
     kibana: docker.elastic.co/kibana/kibana:9.2.2
     mailpit: axllent/mailpit:v1.28
-    minio: minio/minio:RELEASE.2025-04-22T22-12-26Z
     mysql8: mysql:8.0.44
     mysql9: mysql:9.5.0
     percona8: percona:8.0.43-34-centos
