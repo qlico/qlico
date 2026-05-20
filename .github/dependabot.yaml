@@ -6,7 +6,9 @@ updates:
     rebase-strategy: auto
     labels: ["dependencies"]
     schedule:
-      interval: weekly
+      interval: daily
+    cooldown:
+      default-days: 7
 
   - package-ecosystem: docker
     directory: "/project-examples"
@@ -14,7 +16,9 @@ updates:
     rebase-strategy: auto
     labels: ["dependencies"]
     schedule:
-      interval: weekly
+      interval: daily
+    cooldown:
+      default-days: 7
 
   - package-ecosystem: github-actions
     directory: "/"
@@ -22,4 +26,6 @@ updates:
     rebase-strategy: auto
     labels: ["dependencies"]
     schedule:
-      interval: weekly
+      interval: daily
+    cooldown:
+      default-days: 7
