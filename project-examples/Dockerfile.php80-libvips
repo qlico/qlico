@@ -2,7 +2,7 @@
 # WARNING THIS PHP VERSION IS END OF LIFE, SEE: https://www.php.net/supported-versions.php
 # SINCE THIS VERSION IS END OF LIFE (EOL), THIS DOCKERFILE IS NOT MAINTAINED ANYMORE.
 # IF YOUR BUILD IS BROKEN, PLEASE FIX IT YOURSELF.
-FROM php:8.0.29-fpm-alpine3.16 as base
+FROM php:8.2.5-fpm-alpine3.16 as base
 LABEL maintainer="Qlico <hello@qlico.dev>"
 
 # PHP-FPM defaults
