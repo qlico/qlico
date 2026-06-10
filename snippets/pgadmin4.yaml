@@ -1,0 +1,13 @@
+  pgadmin4:
+    image: {{ container_images.pgadmin4 }}
+    container_name: qlico-core_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.qlico}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-qlico}
+    volumes:
+      - pgadmin4-data:/root/.pgadmin
+    labels:
+      - "traefik.http.routers.pgadmin4.rule=Host(`pgadmin4.qlico`)"
+      - "traefik.http.services.pgadmin4.loadbalancer.server.port=80"
+    networks:
+      - qlico-core
