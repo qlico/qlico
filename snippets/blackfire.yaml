@@ -1,0 +1,7 @@
+  blackfire:
+    image: {{ container_images.blackfire }}
+    container_name: qlico-core_blackfire
+    env_file:
+      - .env
+    networks:
+      - qlico-core

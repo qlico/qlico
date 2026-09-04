@@ -1,0 +1,8 @@
+  adminer:
+    image: {{ container_images.adminer }}
+    container_name: qlico-core_adminer
+    labels:
+      - "traefik.http.routers.adminer.rule=Host(`adminer.qlico`)"
+      - "traefik.http.services.adminer.loadbalancer.server.port=8080"
+    networks:
+      - qlico-core
