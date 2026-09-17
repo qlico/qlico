@@ -1,0 +1,15 @@
+  kibana9:
+    image: {{ container_images.kibana }}
+    container_name: qlico-core_kibana9
+    logging:
+      driver: none
+    links:
+      - elasticsearch9
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch9:9200
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch9:9200"]'
+    labels:
+      - "traefik.http.routers.kibana9.rule=Host(`kibana9.qlico`)"
+      - "traefik.http.services.kibana9.loadbalancer.server.port=5601"
+    networks:
+      - qlico-core
