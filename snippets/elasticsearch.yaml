@@ -1,0 +1,21 @@
+  elasticsearch9:
+    image: {{ container_images.elasticsearch }}
+    container_name: qlico-core_elasticsearch9
+    logging:
+      driver: none
+    ports:
+      - 9209:9200
+    volumes:
+      - elasticsearch9-data/:/usr/share/elasticsearch/data
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    labels:
+      - "traefik.http.routers.elasticsearch9.rule=Host(`elasticsearch9.qlico`)"
+      - "traefik.http.services.elasticsearch9.loadbalancer.server.port=9200"
+    networks:
+      - qlico-core
