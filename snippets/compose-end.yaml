@@ -1,0 +1,5 @@
+
+networks:
+  qlico-core:
+    driver: bridge
+    name: qlico-core

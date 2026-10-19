@@ -1,0 +1,9 @@
+  valkey:
+    image:  {{ container_images.valkey }}
+    container_name: qlico-core_valkey
+    ports:
+      - 6379:6379
+    volumes:
+      - valkey-data:/data
+    networks:
+      - qlico-core
