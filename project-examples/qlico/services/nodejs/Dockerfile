@@ -1,4 +1,4 @@
-FROM node:25
+FROM node:26
 
 RUN mkdir -p /var/www/html
 RUN chown node:node /var/www/html
