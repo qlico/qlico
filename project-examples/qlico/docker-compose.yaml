@@ -37,7 +37,7 @@ services:
     build: services/nodejs
     container_name: ${PROJECT_NAME}_nodejs
     volumes:
-      - ../:/var/www/html:cached
+      - ../:/var/www/html
     networks:
       - qlico-core
 volumes:
