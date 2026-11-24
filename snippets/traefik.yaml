@@ -1,0 +1,13 @@
+  traefik:
+    image: {{ container_images.traefik }}
+    container_name: qlico-core_traefik
+    command: ["--providers.docker", "--api.insecure"]
+    networks:
+      - qlico-core
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - "traefik.http.routers.traefik.rule=Host(`traefik.qlico`)"
+      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
